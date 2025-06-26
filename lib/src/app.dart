@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           home: Builder(builder: (context) {
             ScreenUtil.init(context);
-            return const LoginScreen();
+            return const SplashScreen();
           }),
         ),
       ),

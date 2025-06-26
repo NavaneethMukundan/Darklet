@@ -1,10 +1,12 @@
 import 'package:darklet/src/auth/view/register.dart';
 import 'package:darklet/src/auth/widget/input_field.dart';
+import 'package:darklet/src/home/view/home.dart';
 import 'package:darklet/src/onboarding/view/splash_screen.dart';
 import 'package:darklet/src/utils/constants/asset_store.dart';
 import 'package:darklet/src/utils/constants/screen_route.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
 import 'package:darklet/src/utils/themes/styles/font_style.dart';
+import 'package:darklet/src/utils/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -86,19 +88,24 @@ class LoginScreen extends StatelessWidget {
                     kHeight5,
                     Padding(
                       padding: const EdgeInsets.only(left: 35, right: 35),
-                      child: Container(
-                        height: 65,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: color.kBlack,
-                            borderRadius: BorderRadius.circular(18)),
-                        child: Center(
-                          child: Text(
-                            'Sign In',
-                            style: FontStyles().randomTextStylePoppins(
-                                size: 20,
-                                weight: FontWeight.w600,
-                                color: color.kWhite),
+                      child: GestureDetector(
+                        onTap: () {
+                          pushReplacementRoute(context, BottomNavigation());
+                        },
+                        child: Container(
+                          height: 65,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: color.kBlack,
+                              borderRadius: BorderRadius.circular(18)),
+                          child: Center(
+                            child: Text(
+                              'Sign In',
+                              style: FontStyles().randomTextStylePoppins(
+                                  size: 20,
+                                  weight: FontWeight.w600,
+                                  color: color.kWhite),
+                            ),
                           ),
                         ),
                       ),

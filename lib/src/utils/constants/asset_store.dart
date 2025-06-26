@@ -5,6 +5,8 @@ class AssetStore {
   String onb2 = "$assetPath/ONB-2.png";
   String onb3 = "$assetPath/ONB-3.png";
   String authGraphics = "$assetPath/authGPH.png";
+  String homeIcon = "$assetPath/home_icon.png";
+  String profileIcon = "$assetPath/profile_icon.png";
+  String wishlistIcon = "$assetPath/wishlist_icon.png";
+  String categoryIcon = "$assetPath/category_icon.png";
 }
-
-class DesignStore {}
