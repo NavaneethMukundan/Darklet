@@ -32,8 +32,8 @@ class SplashScreen extends StatelessWidget {
   }
 
   Future<void> navigateToBoarding(context) async {
-    Future.delayed(const Duration(seconds: 3), () {
-      pushReplacementRoute(context, const OnboardingScreenOne());
+    Future.delayed(const Duration(seconds: 2), () {
+      pushRemoveUntilRoute(context, const OnboardingScreenOne());
     });
   }
 }

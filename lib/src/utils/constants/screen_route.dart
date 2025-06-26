@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:darklet/src/utils/widgets/network_connection.dart';
 import 'package:flutter/material.dart';
+
+final iosPlatform = Platform.isIOS;
+final androidPlatform = Platform.isAndroid;
 
 popRoute(context) async {
   Navigator.of(context).pop(
@@ -17,7 +22,7 @@ popRoute(context) async {
 pushRemoveUntilRoute(context, Widget widget) async {
   Navigator.of(context).pushAndRemoveUntil(
       PageRouteBuilder(
-        transitionDuration: const Duration(milliseconds: 200),
+        transitionDuration: Duration(milliseconds: androidPlatform ? 300 : 200),
         pageBuilder: (_, __, ___) => widget,
         transitionsBuilder: (_, animation, __, child) {
           return FadeTransition(opacity: animation, child: child);
@@ -31,7 +36,7 @@ pushRemoveUntilRoute(context, Widget widget) async {
 pushReplacementRoute(context, Widget widget) async {
   Navigator.of(context).pushReplacement(
     PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: 200),
+      transitionDuration: Duration(milliseconds: androidPlatform ? 300 : 200),
       pageBuilder: (_, __, ___) => widget,
       transitionsBuilder: (_, animation, __, child) {
         return FadeTransition(opacity: animation, child: child);
@@ -44,7 +49,7 @@ pushReplacementRoute(context, Widget widget) async {
 pushRoute(context, Widget widget) async {
   Navigator.of(context).push(
     PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: 200),
+      transitionDuration: Duration(milliseconds: androidPlatform ? 300 : 200),
       pageBuilder: (_, __, ___) => widget,
       transitionsBuilder: (_, animation, __, child) {
         return FadeTransition(opacity: animation, child: child);
