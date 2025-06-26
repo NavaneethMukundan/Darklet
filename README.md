@@ -1,16 +1,38 @@
-# darklet
+# Darklet 🔌📱
 
-A new Flutter project.
+**Darklet** is a Flutter-based eCommerce app that allows users in **Dubai** to **buy and sell electronic items** with ease. This app facilitates direct communication between buyers and sellers — no online payments involved. Just browse, connect, and deal!
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 📱 Smooth and clean UI built with Flutter
+- 🔍 Browse electronic products listed by users
+- 🛠️ Post your own products for sale with images, pricing, and descriptions
+- 📞 Directly contact sellers via WhatsApp, phone, or message
+- 📍 Focused on local Dubai-based deals for faster, safer handovers
+- 🧾 Product details screen with all necessary specs and seller info
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧑‍💻 Tech Stack
+
+- **Frontend**: Flutter (Dart)
+- **Backend**: Python
+- **Database**: MongoDB (Cloud or Local)
+- **Hosting**: AWS (Planned)
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/darklet.git
+cd darklet
+
+# 2. Install dependencies
+flutter pub get
+
+# 3. Run the app
+flutter run
