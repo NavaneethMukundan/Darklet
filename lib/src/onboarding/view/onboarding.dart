@@ -1,3 +1,4 @@
+import 'package:darklet/src/auth/view/login.dart';
 import 'package:darklet/src/onboarding/widget/onboard_widget.dart';
 import 'package:darklet/src/utils/constants/asset_store.dart';
 import 'package:darklet/src/utils/constants/screen_route.dart';
@@ -36,7 +37,9 @@ class OnboardingScreenThree extends StatelessWidget {
               subtitle:
                   'Your order is placed and on its way.\nSit back, relax — we’ll handle the rest.',
               currentIndex: 3,
-              onNext: () {})),
+              onNext: () {
+                pushReplacementRoute(context, const LoginScreen());
+              })),
     );
   }
 }
