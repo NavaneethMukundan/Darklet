@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ColorManager {
   Color primaryColor = const Color(0XFFBBE96D);
+  Color primaryDarkColor = const Color(0XFF6CAC00);
   Color secondaryColor = const Color(0xFFD6F3A2);
   Color kWhite = Colors.white;
   Color kWhiteSecondary = const Color(0XFFF1F1F1);

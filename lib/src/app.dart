@@ -1,8 +1,7 @@
-import 'package:darklet/src/auth/view/login.dart';
-import 'package:darklet/src/onboarding/view/splash_screen.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
 import 'package:darklet/src/utils/resource/provider_notifier.dart';
 import 'package:darklet/src/utils/themes/colors/colors.dart';
+import 'package:darklet/src/utils/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
           ),
           home: Builder(builder: (context) {
             ScreenUtil.init(context);
-            return const SplashScreen();
+            return BottomNavigation();
           }),
         ),
       ),
