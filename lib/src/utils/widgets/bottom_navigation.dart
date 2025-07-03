@@ -29,12 +29,12 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AuthController>(builder: (context, controller, child) {
       return Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: color.kWhite,
         body: _screens[controller.selectedIndex],
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40),
+            margin: const EdgeInsets.symmetric(horizontal: 50),
             padding: const EdgeInsets.symmetric(vertical: 10),
             decoration: BoxDecoration(
               color: Colors.white,
