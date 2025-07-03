@@ -9,4 +9,8 @@ class AssetStore {
   String profileIcon = "$assetPath/profile_icon.png";
   String wishlistIcon = "$assetPath/wishlist_icon.png";
   String categoryIcon = "$assetPath/category_icon.png";
+  String phoneIcon = "$assetPath/phone-icon.png";
+  String consoleIcon = "$assetPath/console-icon.png";
+  String laptopIcon = "$assetPath/laptop-icon.png";
+  String headphoneIcon = "$assetPath/headphone-icon.png";
 }
