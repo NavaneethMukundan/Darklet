@@ -20,4 +20,8 @@ class AssetStore {
   String logoutIcon = "$assetPath/logout.png";
   String rightArrowIcon = "$assetPath/right-arrow.png";
   String filterIcon = "$assetPath/filter-icon.png";
+  String iphoneCategory = "$assetPath/iphone-cat.png";
+  String laptopCategory = "$assetPath/lap-cat.png";
+  String headphoneCategory = "$assetPath/audio-cat.png";
+  String consoleCategory = "$assetPath/console-cat.png";
 }
