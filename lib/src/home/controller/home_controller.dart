@@ -20,5 +20,9 @@ class HomeController extends ChangeNotifier {
     'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
     'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
     'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
+    'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
+    'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
+    'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
+    'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png',
   ];
 }

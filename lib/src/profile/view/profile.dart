@@ -21,8 +21,8 @@ class ProfileScreen extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      height: 150,
-                      width: 150,
+                      height: 100,
+                      width: 100,
                       decoration: BoxDecoration(
                           color: color.secondaryColor,
                           shape: BoxShape.circle,
@@ -59,18 +59,18 @@ class ProfileScreen extends StatelessWidget {
                 Text(
                   'Navaneeth',
                   style: FontStyles().randomTextStylePoppins(
-                      size: 36, weight: FontWeight.bold, color: color.kBlack),
+                      size: 30, weight: FontWeight.bold, color: color.kBlack),
                 ),
                 Text(
                   'Mukundan',
                   style: FontStyles().randomTextStylePoppins(
-                      size: 30, weight: FontWeight.w500, color: color.kGrey),
+                      size: 25, weight: FontWeight.w500, color: color.kGrey),
                 ),
-                kHeight50,
+                kHeight30,
                 Text(
                   'Profile',
                   style: FontStyles().randomTextStylePoppins(
-                      size: 22, weight: FontWeight.w600, color: color.kBlack),
+                      size: 20, weight: FontWeight.w600, color: color.kBlack),
                 ),
                 kHeight15,
                 profileTile(const Color(0XFFE7F7CB), 'Manage Profile',
@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
                 Text(
                   'Settings',
                   style: FontStyles().randomTextStylePoppins(
-                      size: 22, weight: FontWeight.w600, color: color.kBlack),
+                      size: 20, weight: FontWeight.w600, color: color.kBlack),
                 ),
                 kHeight15,
                 profileTile(const Color(0XFFE5BEF9), 'Notifications',
@@ -87,24 +87,10 @@ class ProfileScreen extends StatelessWidget {
                 kHeight20,
                 profileTile(const Color(0XFF88ABB7), 'Dark Mode',
                     AssetStore().darkThemeIcon),
+                kHeight20,
+                profileTile(const Color(0XFF073F6C), 'Log Out',
+                    AssetStore().logoutIcon),
                 kHeight50,
-                Container(
-                  margin: const EdgeInsets.only(left: 35, right: 35),
-                  height: 65,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: color.kBlackSecondary,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Center(
-                    child: Text(
-                      'Log Out',
-                      style: FontStyles().randomTextStylePoppins(
-                          size: 20,
-                          weight: FontWeight.w600,
-                          color: color.kWhite),
-                    ),
-                  ),
-                )
               ],
             ),
           ),
@@ -117,8 +103,8 @@ class ProfileScreen extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 69,
-          width: 69,
+          height: 55,
+          width: 55,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: colors,
@@ -128,14 +114,16 @@ class ProfileScreen extends StatelessWidget {
         Text(
           title,
           style: FontStyles().randomTextStylePoppins(
-              size: 18, weight: FontWeight.w500, color: color.kBlackSecondary),
+              size: 16, weight: FontWeight.w500, color: color.kBlackSecondary),
         ),
         const Spacer(),
-        Icon(
-          Icons.keyboard_arrow_right_rounded,
-          color: color.kGrey,
-          size: 30,
-        )
+        Container(
+            padding:
+                const EdgeInsets.only(left: 13, right: 11, top: 9, bottom: 9),
+            decoration: BoxDecoration(
+                color: color.kLightGrey.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(10)),
+            child: Image.asset(AssetStore().rightArrowIcon))
       ],
     );
   }

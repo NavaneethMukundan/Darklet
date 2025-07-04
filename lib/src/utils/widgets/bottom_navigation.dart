@@ -29,44 +29,54 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AuthController>(builder: (context, controller, child) {
       return Scaffold(
-        backgroundColor: color.kWhite,
-        body: _screens[controller.selectedIndex],
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(bottom: 20.0),
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 50),
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-              boxShadow: [
-                BoxShadow(
-                  offset: const Offset(0, 0),
-                  color: color.kBlackSecondary,
-                  blurRadius: 1,
-                  spreadRadius: 0,
-                )
-              ],
+        backgroundColor: Colors.transparent,
+        extendBody: true,
+        body: Stack(
+          children: [
+            _screens[controller.selectedIndex],
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 20,
+              child: Center(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 50),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white, // ✅ keep it white!
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(0, 0),
+                        color: color.kBlackSecondary,
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(images.length, (index) {
+                      final isSelected = controller.selectedIndex == index;
+                      return GestureDetector(
+                        onTap: () => controller.updateIndex(index),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: isSelected
+                              ? const BoxDecoration(
+                                  color: Colors.lightGreenAccent,
+                                  shape: BoxShape.circle,
+                                )
+                              : null,
+                          child: Image.asset(images[index]),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(images.length, (index) {
-                final isSelected = controller.selectedIndex == index;
-                return GestureDetector(
-                  onTap: () => controller.updateIndex(index),
-                  child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: isSelected
-                          ? const BoxDecoration(
-                              color: Colors.lightGreenAccent,
-                              shape: BoxShape.circle,
-                            )
-                          : null,
-                      child: Image.asset(images[index])),
-                );
-              }),
-            ),
-          ),
+          ],
         ),
       );
     });

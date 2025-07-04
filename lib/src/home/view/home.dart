@@ -31,8 +31,9 @@ class HomeScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: color.kLightGrey.withOpacity(0.5),
                               shape: BoxShape.circle,
-                              image:
-                                  const DecorationImage(image: AssetImage(''))),
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage(AssetStore().profilePicture))),
                         ),
                         kWidth10,
                         Column(
@@ -202,16 +203,15 @@ class HomeScreen extends StatelessWidget {
                       itemCount: controller.flashSaleImages.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // 🔥 2 items per row
+                        crossAxisCount: 2,
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 15,
+                        childAspectRatio: 0.85,
                       ),
                       itemBuilder: (context, index) {
                         return Stack(
                           children: [
                             Container(
                               height: 200,
-                              width: 191,
                               decoration: BoxDecoration(
                                 color: color.kWhite,
                                 borderRadius: BorderRadius.circular(22),
@@ -269,11 +269,10 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                             Positioned(
-                              left: 155,
-                              top: 0,
+                              left: MediaQuery.of(context).size.width / 2.81,
                               child: Container(
-                                height: 35,
-                                width: 35,
+                                height: 33,
+                                width: 33,
                                 decoration: BoxDecoration(
                                   color: color.kWhite,
                                   shape: BoxShape.circle,
@@ -292,7 +291,7 @@ class HomeScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    kHeight25
+                    kHeight60
                   ],
                 ),
               ),

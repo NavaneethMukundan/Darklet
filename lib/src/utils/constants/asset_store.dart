@@ -17,4 +17,6 @@ class AssetStore {
   String consoleIcon = "$assetPath/console-icon.png";
   String laptopIcon = "$assetPath/laptop-icon.png";
   String headphoneIcon = "$assetPath/headphone-icon.png";
+  String logoutIcon = "$assetPath/logout.png";
+  String rightArrowIcon = "$assetPath/right-arrow.png";
 }
