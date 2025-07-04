@@ -121,7 +121,7 @@ class ProfileScreen extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 13, right: 11, top: 9, bottom: 9),
             decoration: BoxDecoration(
-                color: color.kLightGrey.withOpacity(0.3),
+                color: color.kLightGrey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(10)),
             child: Image.asset(AssetStore().rightArrowIcon))
       ],

@@ -19,4 +19,5 @@ class AssetStore {
   String headphoneIcon = "$assetPath/headphone-icon.png";
   String logoutIcon = "$assetPath/logout.png";
   String rightArrowIcon = "$assetPath/right-arrow.png";
+  String filterIcon = "$assetPath/filter-icon.png";
 }

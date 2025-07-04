@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -132,45 +133,42 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     kHeight20,
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: List.generate(
-                          4,
-                          (index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 15),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(5),
-                                    width: 85,
-                                    height: 85,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: const RadialGradient(colors: [
-                                        Color(0XFFD6F3A2),
-                                        Color(0XFFF3F3F3),
-                                      ]),
-                                      image: DecorationImage(
-                                          image: AssetImage(controller
-                                              .homeCategoriesImages[index])),
-                                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(
+                        4,
+                        (index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(5),
+                                  width: 85,
+                                  height: 85,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    gradient: const RadialGradient(colors: [
+                                      Color(0XFFD6F3A2),
+                                      Color(0XFFF3F3F3),
+                                    ]),
+                                    image: DecorationImage(
+                                        image: AssetImage(controller
+                                            .homeCategoriesImages[index])),
                                   ),
-                                  kHeight5,
-                                  Text(
-                                    controller.homeCategoriesName[index],
-                                    style: FontStyles().randomTextStylePoppins(
-                                        size: 15,
-                                        weight: FontWeight.w500,
-                                        color: color.kBlackSecondary),
-                                  )
-                                ],
-                              ),
-                            );
-                          },
-                        ),
+                                ),
+                                kHeight5,
+                                Text(
+                                  controller.homeCategoriesName[index],
+                                  style: FontStyles().randomTextStylePoppins(
+                                      size: 15,
+                                      weight: FontWeight.w500,
+                                      color: color.kBlackSecondary),
+                                )
+                              ],
+                            ),
+                          );
+                        },
                       ),
                     ),
                     kHeight25,
