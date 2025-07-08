@@ -1,6 +1,8 @@
 import 'package:darklet/src/home/widget/search_field_widget.dart';
 import 'package:darklet/src/onboarding/view/splash_screen.dart';
+import 'package:darklet/src/products/view/products.dart';
 import 'package:darklet/src/utils/constants/asset_store.dart';
+import 'package:darklet/src/utils/constants/screen_route.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
 import 'package:darklet/src/utils/themes/styles/font_style.dart';
 import 'package:flutter/material.dart';
@@ -63,8 +65,13 @@ class CategoryScreen extends StatelessWidget {
                     ],
                   ),
                   kHeight30,
-                  categoryTiles(const Color(0XFFA98E7A), 'iPhone section',
-                      AssetStore().iphoneCategory),
+                  GestureDetector(
+                    onTap: () {
+                      pushRoute(context, const ProductScreen());
+                    },
+                    child: categoryTiles(const Color(0XFFA98E7A),
+                        'iPhone section', AssetStore().iphoneCategory),
+                  ),
                   kHeight15,
                   categoryTiles(const Color(0XFF722A3F), 'Laptop section',
                       AssetStore().laptopCategory),

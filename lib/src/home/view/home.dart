@@ -15,6 +15,94 @@ class HomeScreen extends StatelessWidget {
     return ScreenGradientWidget(
       child: Scaffold(
         backgroundColor: color.kTransparent,
+        appBar: AppBar(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
+            ),
+          ),
+          toolbarHeight: 80,
+          backgroundColor: color.kTransparent,
+          title: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 55,
+                    height: 55,
+                    decoration: BoxDecoration(
+                        color: color.kLightGrey.withOpacity(0.5),
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(AssetStore().profilePicture))),
+                  ),
+                  kWidth10,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hello , Navaneeth',
+                        style: FontStyles().randomTextStylePoppins(
+                            size: 18,
+                            weight: FontWeight.w500,
+                            color: color.kBlack),
+                      ),
+                      RichText(
+                        text: TextSpan(
+                            text: 'Welcome to ',
+                            style: FontStyles().randomTextStylePoppins(
+                                size: 14,
+                                weight: FontWeight.w500,
+                                color: color.kGrey),
+                            children: [
+                              TextSpan(
+                                text: 'Darklet',
+                                style: FontStyles().randomTextStylePoppins(
+                                    size: 14,
+                                    weight: FontWeight.w500,
+                                    color: const Color(0XFF6CAC00)),
+                              ),
+                            ]),
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 55,
+                        height: 55,
+                        decoration: BoxDecoration(
+                          color: color.kWhite,
+                          shape: BoxShape.circle,
+                          border:
+                              Border.all(color: color.kLightGrey, width: 0.5),
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.notifications_none_rounded,
+                            color: color.kGrey,
+                            size: 30,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 38,
+                        child: Icon(
+                          Icons.circle,
+                          color: color.primaryColor,
+                          size: 16,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
         body: Consumer<HomeController>(builder: (context, controller, _) {
           return SafeArea(
             child: Padding(
@@ -24,82 +112,6 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 55,
-                          height: 55,
-                          decoration: BoxDecoration(
-                              color: color.kLightGrey.withOpacity(0.5),
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage(AssetStore().profilePicture))),
-                        ),
-                        kWidth10,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Hello , Navaneeth',
-                              style: FontStyles().randomTextStylePoppins(
-                                  size: 18,
-                                  weight: FontWeight.w500,
-                                  color: color.kBlack),
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  text: 'Welcome to ',
-                                  style: FontStyles().randomTextStylePoppins(
-                                      size: 14,
-                                      weight: FontWeight.w500,
-                                      color: color.kGrey),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Darklet',
-                                      style: FontStyles()
-                                          .randomTextStylePoppins(
-                                              size: 14,
-                                              weight: FontWeight.w500,
-                                              color: const Color(0XFF6CAC00)),
-                                    ),
-                                  ]),
-                            )
-                          ],
-                        ),
-                        const Spacer(),
-                        Stack(
-                          children: [
-                            Container(
-                              width: 55,
-                              height: 55,
-                              decoration: BoxDecoration(
-                                color: color.kWhite,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    color: color.kLightGrey, width: 0.5),
-                              ),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.notifications_none_rounded,
-                                  color: color.kGrey,
-                                  size: 30,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              left: 38,
-                              child: Icon(
-                                Icons.circle,
-                                color: color.primaryColor,
-                                size: 16,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
                     kHeight25,
                     const SearchFieldWidget(
                       content: 'Search Products....',
