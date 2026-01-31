@@ -1,6 +1,5 @@
 import 'package:darklet/src/auth/view/register.dart';
 import 'package:darklet/src/auth/widget/input_field.dart';
-import 'package:darklet/src/home/view/home.dart';
 import 'package:darklet/src/onboarding/view/splash_screen.dart';
 import 'package:darklet/src/utils/constants/asset_store.dart';
 import 'package:darklet/src/utils/constants/screen_route.dart';
