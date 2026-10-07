@@ -629,6 +629,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableNotifications => 'Turn on notifications';
 
   @override
+  String get view => 'View';
+
+  @override
   String get orderSummary => 'Order summary';
 
   @override

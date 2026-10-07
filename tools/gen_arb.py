@@ -219,6 +219,7 @@ S = {
  "pushAskTitle": ("Get order updates?", "هل تريد تلقي تحديثات الطلب؟", {}),
  "pushAskMessage": ("We'll notify you when your order is confirmed, shipped and delivered.", "سنخبرك عند تأكيد طلبك وشحنه وتسليمه.", {}),
  "enableNotifications": ("Turn on notifications", "تفعيل الإشعارات", {}),
+ "view": ("View", "عرض", {}),
  "orderSummary": ("Order summary", "ملخص الطلب", {}),
  "delivery": ("Delivery", "التوصيل", {}),
  "total": ("Total", "الإجمالي", {}),

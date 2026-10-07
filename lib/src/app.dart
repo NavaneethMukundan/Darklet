@@ -1,6 +1,7 @@
 import 'package:darklet/l10n/app_localizations.dart';
 import 'package:darklet/src/app_dependencies.dart';
 import 'package:darklet/src/config/config.dart';
+import 'package:darklet/src/models/app_notification.dart';
 import 'package:darklet/src/auth/controller/auth_controller.dart';
 import 'package:darklet/src/notifications/controller/notification_controller.dart';
 import 'package:darklet/src/services/connectivity_controller.dart';
@@ -28,6 +29,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late final ThemeController _theme = ThemeController(widget.deps.prefs);
   late final LocaleController _locale = LocaleController(widget.deps.prefs);
+  final _navigatorKey = GlobalKey<NavigatorState>();
+  final _messengerKey = GlobalKey<ScaffoldMessengerState>();
   late final ConnectivityController _connectivity = ConnectivityController();
   late final PushService? _push = AppConfig.useMock
       ? null
@@ -95,8 +98,12 @@ class _MyAppState extends State<MyApp> {
               supportedLocales: AppLocalizations.supportedLocales,
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               builder: (context, child) => _PushBridge(
+                navigatorKey: _navigatorKey,
+                messengerKey: _messengerKey,
                 child: OfflineBanner(child: child ?? const SizedBox.shrink()),
               ),
+              navigatorKey: _navigatorKey,
+              scaffoldMessengerKey: _messengerKey,
               initialRoute: AppRoutes.splash,
               onGenerateRoute: AppRouter.onGenerateRoute,
             ),
@@ -111,7 +118,13 @@ class _MyAppState extends State<MyApp> {
 /// and keeps the topic subscription in step with the signed-in user.
 class _PushBridge extends StatefulWidget {
   final Widget child;
-  const _PushBridge({required this.child});
+  final GlobalKey<NavigatorState> navigatorKey;
+  final GlobalKey<ScaffoldMessengerState> messengerKey;
+  const _PushBridge({
+    required this.child,
+    required this.navigatorKey,
+    required this.messengerKey,
+  });
 
   @override
   State<_PushBridge> createState() => _PushBridgeState();
@@ -128,9 +141,45 @@ class _PushBridgeState extends State<_PushBridge> {
     if (_push == null) return;
     final inbox = context.read<NotificationController>();
     _push!.start();
-    _push!.notifications.listen(inbox.add);
+    _push!.notifications.listen((n) {
+      inbox.add(n);
+      _showBanner(n);
+    });
     _auth = context.read<AuthController>()..addListener(_sync);
     _sync();
+  }
+
+  /// Android and iOS don't draw a system banner for pushes that arrive while
+  /// the app is open, so show one inside the app.
+  void _showBanner(AppNotification n) {
+    final messenger = widget.messengerKey.currentState;
+    final ctx = widget.navigatorKey.currentContext;
+    if (messenger == null || ctx == null) return;
+    final l = AppLocalizations.of(ctx);
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 5),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                n.title,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
+              if (n.body.isNotEmpty) Text(n.body),
+            ],
+          ),
+          action: SnackBarAction(
+            label: l.view,
+            onPressed: () => widget.navigatorKey.currentState?.pushNamed(
+              AppRoutes.notifications,
+            ),
+          ),
+        ),
+      );
   }
 
   void _sync() => _push?.setUser(_auth?.userId);

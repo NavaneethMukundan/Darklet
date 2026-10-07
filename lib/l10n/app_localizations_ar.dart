@@ -637,6 +637,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enableNotifications => 'تفعيل الإشعارات';
 
   @override
+  String get view => 'عرض';
+
+  @override
   String get orderSummary => 'ملخص الطلب';
 
   @override

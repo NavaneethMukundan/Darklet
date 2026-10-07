@@ -313,6 +313,7 @@
   "pushAskTitle": "Get order updates?",
   "pushAskMessage": "We'll notify you when your order is confirmed, shipped and delivered.",
   "enableNotifications": "Turn on notifications",
+  "view": "View",
   "orderSummary": "Order summary",
   "delivery": "Delivery",
   "total": "Total",

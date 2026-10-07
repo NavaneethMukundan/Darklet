@@ -1208,6 +1208,12 @@ abstract class AppLocalizations {
   /// **'Turn on notifications'**
   String get enableNotifications;
 
+  /// No description provided for @view.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get view;
+
   /// No description provided for @orderSummary.
   ///
   /// In en, this message translates to:

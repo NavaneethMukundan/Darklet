@@ -313,6 +313,7 @@
   "pushAskTitle": "هل تريد تلقي تحديثات الطلب؟",
   "pushAskMessage": "سنخبرك عند تأكيد طلبك وشحنه وتسليمه.",
   "enableNotifications": "تفعيل الإشعارات",
+  "view": "عرض",
   "orderSummary": "ملخص الطلب",
   "delivery": "التوصيل",
   "total": "الإجمالي",
