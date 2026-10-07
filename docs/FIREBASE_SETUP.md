@@ -2,12 +2,15 @@
 
 1. Create a project at <https://console.firebase.google.com>.
 2. Enable **Authentication** (Email/Password and Google), **Firestore**, **Storage**, **Cloud Messaging**.
-3. Register the apps with the CLI (it replaces `google-services.json` / `GoogleService-Info.plist`):
+3. Generate the Firebase config (it overwrites the placeholder `lib/firebase_options.dart`):
    ```bash
    dart pub global activate flutterfire_cli
-   flutterfire configure --project=<your-project-id> --android-package-name=<your.bundle.id> --ios-bundle-id=<your.bundle.id>
+   flutterfire configure --project=<your-project-id> --platforms=android,ios \
+     --android-package-name=<your.bundle.id> --ios-bundle-id=<your.bundle.id> \
+     --out=lib/firebase_options.dart
    ```
-   Do **not** commit these files in the zip you distribute.
+   If it also edits `android/` Gradle files or adds `google-services.json` / `GoogleService-Info.plist`, you can
+   discard those - the app initialises Firebase from `firebase_options.dart`. Do not distribute your generated options file.
 4. Google sign-in: add your SHA-1/SHA-256 in Firebase, and on iOS add the `REVERSED_CLIENT_ID` URL scheme (see the `google_sign_in` package docs).
 5. Deploy the rules: `cd firebase && firebase deploy --only firestore:rules,storage`.
 6. Seed demo data: see the header of `tools/seed/seed.js`.
