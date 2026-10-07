@@ -14,6 +14,11 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static const String _placeholder = 'REPLACE_ME';
 
+  /// OAuth *web* client id for Google sign-in (Firebase console ->
+  /// Authentication -> Sign-in method -> Google -> Web SDK configuration).
+  /// `flutterfire configure` does not write it; paste it here.
+  static const String googleServerClientId = '';
+
   /// `false` until `flutterfire configure` has generated real values.
   static bool get isConfigured => currentPlatform.apiKey != _placeholder;
 
