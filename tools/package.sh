@@ -19,7 +19,7 @@ rsync -a \
   --exclude 'android/app/google-services.json' --exclude 'ios/Runner/GoogleService-Info.plist' \
   --exclude '*.jks' --exclude '*.keystore' --exclude 'key.properties' \
   --exclude '*serviceAccount*.json' --exclude '*adminsdk*.json' --exclude '.env*' \
-  --exclude 'node_modules' --exclude 'assets/images' --exclude '*.zip' \
+  --exclude 'node_modules' --exclude 'ephemeral' --exclude '.plugin_symlinks' --exclude 'assets/images' --exclude '*.zip' \
   ./ "$stage/"
 
 for f in lib/firebase_options.dart ios/Runner/Info.plist; do
