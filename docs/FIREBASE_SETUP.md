@@ -39,7 +39,7 @@ users can read/write only their own cart, wishlist, addresses and orders.
 ## Push notifications (FCM)
 Signed-in users are subscribed to the topic `user_<uid>` silently. The permission prompt is *not* shown at launch: the app explains the benefit and asks right after the user's first order (`PushPermissionPrompt`). Android 13+ needs the `POST_NOTIFICATIONS` permission (already in the manifest).
 The app shows foreground pushes in the notifications inbox. `firebase/functions/index.js` contains
-`onOrderStatusChange`, which sends a push when an order's `status` changes. iOS also needs an APNs key
+`onOrderCreated` ("Order placed" push) and `onOrderStatusChange` (push whenever an order's `status` changes). iOS also needs an APNs key
 uploaded in Firebase and the Push Notifications capability in Xcode.
 
 Change an order's status from the console or your back office: set `status` and append to `events`

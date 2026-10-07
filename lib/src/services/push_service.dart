@@ -85,7 +85,10 @@ class PushService {
         }
         _controller.add(
           AppNotification(
-            id: m.messageId ?? 'push${DateTime.now().millisecondsSinceEpoch}',
+            id:
+                m.data['notifId'] as String? ??
+                m.messageId ??
+                'push${DateTime.now().millisecondsSinceEpoch}',
             title: n.title ?? '',
             body: n.body ?? '',
             createdAt: DateTime.now(),
