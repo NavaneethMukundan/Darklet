@@ -6,22 +6,22 @@ plugins {
 }
 
 android {
-    namespace = "com.example.darklet"
+    namespace = "com.darklet.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "17"
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.darklet"
+        applicationId = "com.darklet.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -37,6 +37,11 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+}
+
+dependencies {
+    // Needed by flutter_stripe (AppCompat theme for the payment sheet).
+    implementation "androidx.appcompat:appcompat:1.7.0"
 }
 
 flutter {
