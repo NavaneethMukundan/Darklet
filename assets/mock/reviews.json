@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "r1",
+    "productId": "ph-1",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-29T00:00:00"
+  },
+  {
+    "id": "r2",
+    "productId": "ph-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-26T00:00:00"
+  },
+  {
+    "id": "r3",
+    "productId": "ph-1",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-23T00:00:00"
+  },
+  {
+    "id": "r4",
+    "productId": "ph-2",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-20T00:00:00"
+  },
+  {
+    "id": "r5",
+    "productId": "ph-2",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-17T00:00:00"
+  },
+  {
+    "id": "r6",
+    "productId": "ph-2",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-14T00:00:00"
+  },
+  {
+    "id": "r7",
+    "productId": "ph-3",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-11T00:00:00"
+  },
+  {
+    "id": "r8",
+    "productId": "ph-3",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-08T00:00:00"
+  },
+  {
+    "id": "r9",
+    "productId": "ph-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-05T00:00:00"
+  },
+  {
+    "id": "r10",
+    "productId": "ph-4",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-02T00:00:00"
+  },
+  {
+    "id": "r11",
+    "productId": "ph-4",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-30T00:00:00"
+  },
+  {
+    "id": "r12",
+    "productId": "ph-4",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-27T00:00:00"
+  },
+  {
+    "id": "r13",
+    "productId": "co-1",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-24T00:00:00"
+  },
+  {
+    "id": "r14",
+    "productId": "co-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-21T00:00:00"
+  },
+  {
+    "id": "r15",
+    "productId": "co-1",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-18T00:00:00"
+  },
+  {
+    "id": "r16",
+    "productId": "co-2",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-15T00:00:00"
+  },
+  {
+    "id": "r17",
+    "productId": "co-2",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-12T00:00:00"
+  },
+  {
+    "id": "r18",
+    "productId": "co-2",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-09T00:00:00"
+  },
+  {
+    "id": "r19",
+    "productId": "co-3",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-06T00:00:00"
+  },
+  {
+    "id": "r20",
+    "productId": "co-3",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-03T00:00:00"
+  },
+  {
+    "id": "r21",
+    "productId": "co-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-30T00:00:00"
+  },
+  {
+    "id": "r22",
+    "productId": "co-4",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-27T00:00:00"
+  },
+  {
+    "id": "r23",
+    "productId": "co-4",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-06-24T00:00:00"
+  },
+  {
+    "id": "r24",
+    "productId": "co-4",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-21T00:00:00"
+  },
+  {
+    "id": "r25",
+    "productId": "lp-1",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-18T00:00:00"
+  },
+  {
+    "id": "r26",
+    "productId": "lp-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-06-15T00:00:00"
+  },
+  {
+    "id": "r27",
+    "productId": "lp-1",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-12T00:00:00"
+  },
+  {
+    "id": "r28",
+    "productId": "lp-2",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-09T00:00:00"
+  },
+  {
+    "id": "r29",
+    "productId": "lp-2",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-06-06T00:00:00"
+  },
+  {
+    "id": "r30",
+    "productId": "lp-2",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-06-03T00:00:00"
+  },
+  {
+    "id": "r31",
+    "productId": "lp-3",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-31T00:00:00"
+  },
+  {
+    "id": "r32",
+    "productId": "lp-3",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-05-28T00:00:00"
+  },
+  {
+    "id": "r33",
+    "productId": "lp-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-25T00:00:00"
+  },
+  {
+    "id": "r34",
+    "productId": "lp-4",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-22T00:00:00"
+  },
+  {
+    "id": "r35",
+    "productId": "lp-4",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-05-19T00:00:00"
+  },
+  {
+    "id": "r36",
+    "productId": "lp-4",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-16T00:00:00"
+  },
+  {
+    "id": "r37",
+    "productId": "au-1",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-13T00:00:00"
+  },
+  {
+    "id": "r38",
+    "productId": "au-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-05-10T00:00:00"
+  },
+  {
+    "id": "r39",
+    "productId": "au-1",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-07T00:00:00"
+  },
+  {
+    "id": "r40",
+    "productId": "au-2",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-05-04T00:00:00"
+  },
+  {
+    "id": "r41",
+    "productId": "au-2",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-05-01T00:00:00"
+  },
+  {
+    "id": "r42",
+    "productId": "au-2",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-04-28T00:00:00"
+  },
+  {
+    "id": "r43",
+    "productId": "au-3",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-04-25T00:00:00"
+  },
+  {
+    "id": "r44",
+    "productId": "au-3",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-04-22T00:00:00"
+  },
+  {
+    "id": "r45",
+    "productId": "au-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-04-19T00:00:00"
+  },
+  {
+    "id": "r46",
+    "productId": "au-4",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-04-16T00:00:00"
+  },
+  {
+    "id": "r47",
+    "productId": "au-4",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-04-13T00:00:00"
+  },
+  {
+    "id": "r48",
+    "productId": "au-4",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-04-10T00:00:00"
+  },
+  {
+    "id": "r49",
+    "productId": "ph-1",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-09-19T00:00:00"
+  },
+  {
+    "id": "r50",
+    "productId": "ph-1",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-09-14T00:00:00"
+  },
+  {
+    "id": "r51",
+    "productId": "ph-2",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-09-17T00:00:00"
+  },
+  {
+    "id": "r52",
+    "productId": "ph-2",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-09-12T00:00:00"
+  },
+  {
+    "id": "r53",
+    "productId": "ph-3",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-09-15T00:00:00"
+  },
+  {
+    "id": "r54",
+    "productId": "ph-3",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-09-10T00:00:00"
+  },
+  {
+    "id": "r55",
+    "productId": "ph-4",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-09-13T00:00:00"
+  },
+  {
+    "id": "r56",
+    "productId": "ph-4",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-09-08T00:00:00"
+  },
+  {
+    "id": "r57",
+    "productId": "co-1",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-09-11T00:00:00"
+  },
+  {
+    "id": "r58",
+    "productId": "co-1",
+    "userName": "Mina R.",
+    "rating": 3,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-09-06T00:00:00"
+  },
+  {
+    "id": "r59",
+    "productId": "co-2",
+    "userName": "Mina R.",
+    "rating": 3,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-09-09T00:00:00"
+  },
+  {
+    "id": "r60",
+    "productId": "co-2",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-09-04T00:00:00"
+  },
+  {
+    "id": "r61",
+    "productId": "co-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-09-07T00:00:00"
+  },
+  {
+    "id": "r62",
+    "productId": "co-3",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-09-02T00:00:00"
+  },
+  {
+    "id": "r63",
+    "productId": "co-4",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-09-05T00:00:00"
+  },
+  {
+    "id": "r64",
+    "productId": "co-4",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-31T00:00:00"
+  },
+  {
+    "id": "r65",
+    "productId": "lp-1",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-09-03T00:00:00"
+  },
+  {
+    "id": "r66",
+    "productId": "lp-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-08-29T00:00:00"
+  },
+  {
+    "id": "r67",
+    "productId": "lp-2",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-09-01T00:00:00"
+  },
+  {
+    "id": "r68",
+    "productId": "lp-2",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-27T00:00:00"
+  },
+  {
+    "id": "r69",
+    "productId": "lp-3",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-30T00:00:00"
+  },
+  {
+    "id": "r70",
+    "productId": "lp-3",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-08-25T00:00:00"
+  },
+  {
+    "id": "r71",
+    "productId": "lp-4",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-28T00:00:00"
+  },
+  {
+    "id": "r72",
+    "productId": "lp-4",
+    "userName": "Sara K.",
+    "rating": 3,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-23T00:00:00"
+  },
+  {
+    "id": "r73",
+    "productId": "au-1",
+    "userName": "Sara K.",
+    "rating": 3,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-08-26T00:00:00"
+  },
+  {
+    "id": "r74",
+    "productId": "au-1",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-21T00:00:00"
+  },
+  {
+    "id": "r75",
+    "productId": "au-2",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-24T00:00:00"
+  },
+  {
+    "id": "r76",
+    "productId": "au-2",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-08-19T00:00:00"
+  },
+  {
+    "id": "r77",
+    "productId": "au-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-08-22T00:00:00"
+  },
+  {
+    "id": "r78",
+    "productId": "au-3",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-17T00:00:00"
+  },
+  {
+    "id": "r79",
+    "productId": "au-4",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-20T00:00:00"
+  },
+  {
+    "id": "r80",
+    "productId": "au-4",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-08-15T00:00:00"
+  },
+  {
+    "id": "r81",
+    "productId": "ph-5",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-18T00:00:00"
+  },
+  {
+    "id": "r82",
+    "productId": "ph-5",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-13T00:00:00"
+  },
+  {
+    "id": "r83",
+    "productId": "ph-5",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-08-08T00:00:00"
+  },
+  {
+    "id": "r84",
+    "productId": "ph-5",
+    "userName": "Nina S.",
+    "rating": 3,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-08-03T00:00:00"
+  },
+  {
+    "id": "r85",
+    "productId": "ph-5",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-29T00:00:00"
+  },
+  {
+    "id": "r86",
+    "productId": "ph-6",
+    "userName": "Omar T.",
+    "rating": 5,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-08-16T00:00:00"
+  },
+  {
+    "id": "r87",
+    "productId": "ph-6",
+    "userName": "Alex M.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-11T00:00:00"
+  },
+  {
+    "id": "r88",
+    "productId": "ph-6",
+    "userName": "Jordan P.",
+    "rating": 4,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-08-06T00:00:00"
+  },
+  {
+    "id": "r89",
+    "productId": "ph-6",
+    "userName": "Chris D.",
+    "rating": 4,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-08-01T00:00:00"
+  },
+  {
+    "id": "r90",
+    "productId": "ph-6",
+    "userName": "Omar T.",
+    "rating": 3,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-27T00:00:00"
+  },
+  {
+    "id": "r91",
+    "productId": "co-5",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-14T00:00:00"
+  },
+  {
+    "id": "r92",
+    "productId": "co-5",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-09T00:00:00"
+  },
+  {
+    "id": "r93",
+    "productId": "co-5",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-08-04T00:00:00"
+  },
+  {
+    "id": "r94",
+    "productId": "co-5",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-30T00:00:00"
+  },
+  {
+    "id": "r95",
+    "productId": "co-5",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-25T00:00:00"
+  },
+  {
+    "id": "r96",
+    "productId": "co-6",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-08-12T00:00:00"
+  },
+  {
+    "id": "r97",
+    "productId": "co-6",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-07T00:00:00"
+  },
+  {
+    "id": "r98",
+    "productId": "co-6",
+    "userName": "Chris D.",
+    "rating": 5,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-08-02T00:00:00"
+  },
+  {
+    "id": "r99",
+    "productId": "co-6",
+    "userName": "Omar T.",
+    "rating": 4,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-07-28T00:00:00"
+  },
+  {
+    "id": "r100",
+    "productId": "co-6",
+    "userName": "Alex M.",
+    "rating": 4,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-23T00:00:00"
+  },
+  {
+    "id": "r101",
+    "productId": "lp-5",
+    "userName": "Layla H.",
+    "rating": 3,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-10T00:00:00"
+  },
+  {
+    "id": "r102",
+    "productId": "lp-5",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-05T00:00:00"
+  },
+  {
+    "id": "r103",
+    "productId": "lp-5",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-07-31T00:00:00"
+  },
+  {
+    "id": "r104",
+    "productId": "lp-5",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-26T00:00:00"
+  },
+  {
+    "id": "r105",
+    "productId": "lp-5",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-21T00:00:00"
+  },
+  {
+    "id": "r106",
+    "productId": "lp-6",
+    "userName": "Jordan P.",
+    "rating": 4,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-08-08T00:00:00"
+  },
+  {
+    "id": "r107",
+    "productId": "lp-6",
+    "userName": "Chris D.",
+    "rating": 3,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-08-03T00:00:00"
+  },
+  {
+    "id": "r108",
+    "productId": "lp-6",
+    "userName": "Omar T.",
+    "rating": 5,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-07-29T00:00:00"
+  },
+  {
+    "id": "r109",
+    "productId": "lp-6",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-07-24T00:00:00"
+  },
+  {
+    "id": "r110",
+    "productId": "lp-6",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-19T00:00:00"
+  },
+  {
+    "id": "r111",
+    "productId": "au-5",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-06T00:00:00"
+  },
+  {
+    "id": "r112",
+    "productId": "au-5",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-08-01T00:00:00"
+  },
+  {
+    "id": "r113",
+    "productId": "au-5",
+    "userName": "Mina R.",
+    "rating": 3,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-07-27T00:00:00"
+  },
+  {
+    "id": "r114",
+    "productId": "au-5",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-22T00:00:00"
+  },
+  {
+    "id": "r115",
+    "productId": "au-5",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-17T00:00:00"
+  },
+  {
+    "id": "r116",
+    "productId": "au-6",
+    "userName": "Chris D.",
+    "rating": 4,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-08-04T00:00:00"
+  },
+  {
+    "id": "r117",
+    "productId": "au-6",
+    "userName": "Omar T.",
+    "rating": 4,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-30T00:00:00"
+  },
+  {
+    "id": "r118",
+    "productId": "au-6",
+    "userName": "Alex M.",
+    "rating": 4,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-07-25T00:00:00"
+  },
+  {
+    "id": "r119",
+    "productId": "au-6",
+    "userName": "Jordan P.",
+    "rating": 3,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-07-20T00:00:00"
+  },
+  {
+    "id": "r120",
+    "productId": "au-6",
+    "userName": "Chris D.",
+    "rating": 5,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-15T00:00:00"
+  },
+  {
+    "id": "r121",
+    "productId": "wr-1",
+    "userName": "Sara K.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-08-02T00:00:00"
+  },
+  {
+    "id": "r122",
+    "productId": "wr-1",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-07-28T00:00:00"
+  },
+  {
+    "id": "r123",
+    "productId": "wr-1",
+    "userName": "Layla H.",
+    "rating": 4,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-07-23T00:00:00"
+  },
+  {
+    "id": "r124",
+    "productId": "wr-1",
+    "userName": "Nina S.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-18T00:00:00"
+  },
+  {
+    "id": "r125",
+    "productId": "wr-1",
+    "userName": "Sara K.",
+    "rating": 3,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-13T00:00:00"
+  },
+  {
+    "id": "r126",
+    "productId": "wr-2",
+    "userName": "Omar T.",
+    "rating": 5,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-07-31T00:00:00"
+  },
+  {
+    "id": "r127",
+    "productId": "wr-2",
+    "userName": "Alex M.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-26T00:00:00"
+  },
+  {
+    "id": "r128",
+    "productId": "wr-2",
+    "userName": "Jordan P.",
+    "rating": 4,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-07-21T00:00:00"
+  },
+  {
+    "id": "r129",
+    "productId": "wr-2",
+    "userName": "Chris D.",
+    "rating": 4,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-07-16T00:00:00"
+  },
+  {
+    "id": "r130",
+    "productId": "wr-2",
+    "userName": "Omar T.",
+    "rating": 4,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-11T00:00:00"
+  },
+  {
+    "id": "r131",
+    "productId": "wr-3",
+    "userName": "Mina R.",
+    "rating": 5,
+    "comment": "Works well, but the packaging could be better.",
+    "createdAt": "2026-07-29T00:00:00"
+  },
+  {
+    "id": "r132",
+    "productId": "wr-3",
+    "userName": "Layla H.",
+    "rating": 5,
+    "comment": "A bit pricey, but you can feel the quality.",
+    "createdAt": "2026-07-24T00:00:00"
+  },
+  {
+    "id": "r133",
+    "productId": "wr-3",
+    "userName": "Nina S.",
+    "rating": 5,
+    "comment": "Great value for the price. Fast delivery too.",
+    "createdAt": "2026-07-19T00:00:00"
+  },
+  {
+    "id": "r134",
+    "productId": "wr-3",
+    "userName": "Sara K.",
+    "rating": 4,
+    "comment": "Good, though the battery could last longer.",
+    "createdAt": "2026-07-14T00:00:00"
+  },
+  {
+    "id": "r135",
+    "productId": "wr-3",
+    "userName": "Mina R.",
+    "rating": 4,
+    "comment": "Does what it says. Nothing more, nothing less.",
+    "createdAt": "2026-07-09T00:00:00"
+  },
+  {
+    "id": "r136",
+    "productId": "wr-4",
+    "userName": "Alex M.",
+    "rating": 3,
+    "comment": "Bought one for my brother and now he wants my old one.",
+    "createdAt": "2026-07-27T00:00:00"
+  },
+  {
+    "id": "r137",
+    "productId": "wr-4",
+    "userName": "Jordan P.",
+    "rating": 5,
+    "comment": "Solid build quality. Would buy again.",
+    "createdAt": "2026-07-22T00:00:00"
+  },
+  {
+    "id": "r138",
+    "productId": "wr-4",
+    "userName": "Chris D.",
+    "rating": 5,
+    "comment": "Setup took two minutes and it just works.",
+    "createdAt": "2026-07-17T00:00:00"
+  },
+  {
+    "id": "r139",
+    "productId": "wr-4",
+    "userName": "Omar T.",
+    "rating": 5,
+    "comment": "Absolutely love it - exactly as described.",
+    "createdAt": "2026-07-12T00:00:00"
+  },
+  {
+    "id": "r140",
+    "productId": "wr-4",
+    "userName": "Alex M.",
+    "rating": 4,
+    "comment": "Exceeded my expectations!",
+    "createdAt": "2026-07-07T00:00:00"
+  }
+]

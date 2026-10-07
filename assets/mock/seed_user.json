@@ -1,0 +1,112 @@
+{
+  "address": {
+    "id": "a1",
+    "label": "Home",
+    "fullName": "John Doe",
+    "phone": "+1 555 010 1234",
+    "line1": "221 Market Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94105",
+    "country": "USA",
+    "isDefault": true
+  },
+  "orders": [
+    {
+      "id": "DK-1042",
+      "createdAt": "2026-10-03T10:15:00",
+      "items": [
+        {
+          "productId": "au-3",
+          "name": "Calm ANC Wireless",
+          "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=700&q=80&auto=format&fit=crop",
+          "price": 299,
+          "quantity": 1
+        }
+      ],
+      "subtotal": 299,
+      "deliveryFee": 4.99,
+      "address": {
+        "id": "a1",
+        "label": "Home",
+        "fullName": "John Doe",
+        "phone": "+1 555 010 1234",
+        "line1": "221 Market Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94105",
+        "country": "USA",
+        "isDefault": true
+      },
+      "deliveryOptionId": "standard",
+      "paymentMethod": "card",
+      "status": "shipped",
+      "events": [
+        {
+          "status": "placed",
+          "at": "2026-10-03T10:15:00"
+        },
+        {
+          "status": "confirmed",
+          "at": "2026-10-03T11:00:00"
+        },
+        {
+          "status": "shipped",
+          "at": "2026-10-05T09:30:00"
+        }
+      ]
+    },
+    {
+      "id": "DK-0987",
+      "createdAt": "2026-09-12T14:00:00",
+      "items": [
+        {
+          "productId": "co-2",
+          "name": "Pulse Wireless Controller",
+          "image": "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?w=700&q=80&auto=format&fit=crop",
+          "price": 69,
+          "quantity": 2
+        }
+      ],
+      "subtotal": 138,
+      "deliveryFee": 12.99,
+      "address": {
+        "id": "a1",
+        "label": "Home",
+        "fullName": "John Doe",
+        "phone": "+1 555 010 1234",
+        "line1": "221 Market Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94105",
+        "country": "USA",
+        "isDefault": true
+      },
+      "deliveryOptionId": "express",
+      "paymentMethod": "cashOnDelivery",
+      "status": "delivered",
+      "events": [
+        {
+          "status": "placed",
+          "at": "2026-09-12T14:00:00"
+        },
+        {
+          "status": "confirmed",
+          "at": "2026-09-12T14:30:00"
+        },
+        {
+          "status": "shipped",
+          "at": "2026-09-12T18:00:00"
+        },
+        {
+          "status": "outForDelivery",
+          "at": "2026-09-13T08:00:00"
+        },
+        {
+          "status": "delivered",
+          "at": "2026-09-13T11:20:00"
+        }
+      ]
+    }
+  ]
+}
