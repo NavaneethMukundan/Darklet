@@ -5,7 +5,10 @@
 # so your keys never reach buyers.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-out="$(pwd)/${1:-darklet-template.zip}"
+case "${1:-darklet-template.zip}" in
+  /*) out="${1}" ;;
+  *) out="$(pwd)/${1:-darklet-template.zip}" ;;
+esac
 stage="$(mktemp -d)"
 trap 'rm -rf "$stage"' EXIT
 
