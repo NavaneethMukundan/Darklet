@@ -1,89 +1,40 @@
 import 'package:darklet/src/utils/themes/colors/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+/// Typography. Poppins for Latin scripts, Tajawal for Arabic.
 class FontStyles {
-  TextStyle headLineLightBold = GoogleFonts.poppins(
-      textStyle: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-          color: ColorManager().kWhite));
+  /// Set by `LocaleController`.
+  static bool isArabic = false;
 
-  TextStyle subHeadLineDark = GoogleFonts.poppins(
-      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600));
+  static String get family => isArabic ? 'Tajawal' : 'Poppins';
 
-  TextStyle subHeadLinebold = GoogleFonts.poppins(
-      textStyle: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: ColorManager().kBlack));
-
-  TextStyle hintTextWhite = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w600,
-          color: ColorManager().kWhite));
-
-  TextStyle hintTextBlack = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w400,
-          color: ColorManager().kBlack));
-
-  TextStyle textFieldName = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-          color: ColorManager().kBlack));
-
-  TextStyle randomTextBlack = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-          color: ColorManager().kBlack));
-
-  TextStyle buttonNameWhite = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: ColorManager().kWhite));
-
-  TextStyle buttonNameBlack = GoogleFonts.karla(
-      textStyle: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: ColorManager().kBlack));
-
-  TextStyle randomTextStyle({
+  TextStyle randomTextStylePoppins({
     double? size,
     FontWeight? weight,
     Color? color,
+    bool? isItalic,
+    bool? isUnderLined,
   }) {
-    return GoogleFonts.karla(
-      textStyle: TextStyle(
-        fontSize: size ?? 15,
-        fontWeight: weight ?? FontWeight.w500,
-        color: color ?? ColorManager().kGrey,
-      ),
+    final c = color ?? ColorManager().kGrey;
+    return TextStyle(
+      fontFamily: family,
+      fontSize: size ?? 15,
+      fontWeight: weight ?? FontWeight.w500,
+      color: c,
+      fontStyle: isItalic == true ? FontStyle.italic : null,
+      decoration: isUnderLined == true ? TextDecoration.underline : null,
+      decorationColor: c,
     );
   }
 
-  TextStyle randomTextStylePoppins(
-      {double? size,
-      FontWeight? weight,
-      Color? color,
-      bool? isItalic,
-      bool? isUnderLined}) {
-    return GoogleFonts.poppins(
-      textStyle: TextStyle(
-        decorationColor: color,
-        decoration: isUnderLined == true ? TextDecoration.underline : null,
-        fontStyle: isItalic == true ? FontStyle.italic : null,
-        fontSize: size ?? 15,
-        decorationThickness: 2,
-        fontWeight: weight ?? FontWeight.w500,
-        color: color ?? ColorManager().kGrey,
-      ),
-    );
-  }
+  TextStyle randomTextStyle({double? size, FontWeight? weight, Color? color}) =>
+      randomTextStylePoppins(size: size, weight: weight, color: color);
 }
+
+/// Short text-style helper: `ts(16, w: FontWeight.w600)`.
+TextStyle ts(double size, {FontWeight w = FontWeight.w500, Color? c}) =>
+    FontStyles().randomTextStylePoppins(
+      size: size,
+      weight: w,
+      color: c ?? color.kBlack,
+    );
