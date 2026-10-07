@@ -1,0 +1,32 @@
+[
+  {
+    "id": "phones",
+    "name": "Phones",
+    "image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&q=80&auto=format&fit=crop",
+    "tint": 4289302138
+  },
+  {
+    "id": "consoles",
+    "name": "Consoles",
+    "image": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800&q=80&auto=format&fit=crop",
+    "tint": 4287535833
+  },
+  {
+    "id": "laptops",
+    "name": "Laptops",
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&q=80&auto=format&fit=crop",
+    "tint": 4285671999
+  },
+  {
+    "id": "audio",
+    "name": "Audio",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80&auto=format&fit=crop",
+    "tint": 4278214422
+  },
+  {
+    "id": "wearables",
+    "name": "Wearables",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80&auto=format&fit=crop",
+    "tint": 4282339765
+  }
+]

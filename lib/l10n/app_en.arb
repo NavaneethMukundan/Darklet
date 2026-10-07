@@ -1,0 +1,420 @@
+{
+  "@@locale": "en",
+  "appName": "Darklet",
+  "skip": "Skip",
+  "next": "Next",
+  "getStarted": "Get started",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "edit": "Edit",
+  "remove": "Remove",
+  "undo": "Undo",
+  "retry": "Retry",
+  "tryAgain": "Try again",
+  "reset": "Reset",
+  "all": "All",
+  "or": "or",
+  "free": "Free",
+  "change": "Change",
+  "viewAll": "View all",
+  "viewCart": "View cart",
+  "somethingWentWrong": "Something went wrong",
+  "tryAgainMessage": "Please check your connection and try again.",
+  "noResults": "No results found",
+  "fieldRequired": "This field is required",
+  "invalidEmail": "Enter a valid email address",
+  "passwordTooShort": "Password must be at least {n} characters",
+  "@passwordTooShort": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "passwordsDontMatch": "Passwords don't match",
+  "onboardTitle1": "Start by creating\nan account",
+  "onboardBody1": "Discover a smarter way to shop.\nSign in to get started.",
+  "onboardTitle2": "Find what you\nare looking for",
+  "onboardBody2": "Browse phones, consoles, laptops and audio.\nFilter and sort in seconds.",
+  "onboardTitle3": "You're all set!",
+  "onboardBody3": "Your order is placed and on its way.\nSit back, relax - we'll handle the rest.",
+  "welcomeBack": "Welcome back",
+  "enterDetails": "Enter your details below",
+  "email": "Email address",
+  "emailHint": "you@example.com",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "forgotPassword": "Forgot your password?",
+  "signIn": "Sign in",
+  "signUp": "Sign up",
+  "continueWithGoogle": "Continue with Google",
+  "noAccount": "Don't have an account?",
+  "haveAccount": "Already have an account?",
+  "createAccount": "Create account",
+  "registerSubtitle": "Join Darklet in a few seconds",
+  "fullName": "Full name",
+  "forgotPasswordTitle": "Reset password",
+  "forgotPasswordSubtitle": "We'll email you a link to reset your password",
+  "sendResetLink": "Send reset link",
+  "resetLinkSent": "If the account exists, a reset link is on its way.",
+  "demoHint": "Demo account: {email} / {password}\nTap to fill",
+  "@demoHint": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      },
+      "password": {
+        "type": "String"
+      }
+    }
+  },
+  "errInvalidCredentials": "Incorrect email or password",
+  "errEmailInUse": "An account with this email already exists",
+  "errWeakPassword": "That password is too weak",
+  "errUserNotFound": "No account found",
+  "errRequiresRecentLogin": "Please sign in again to continue",
+  "errCancelled": "Sign-in was cancelled",
+  "errNetwork": "Network error. Check your connection.",
+  "navHome": "Home",
+  "navCategories": "Categories",
+  "navWishlist": "Wishlist",
+  "navProfile": "Profile",
+  "hello": "Hello, {name}",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomeTo": "Welcome to",
+  "searchProducts": "Search products...",
+  "promoTitle": "Up to 30% off",
+  "promoSubtitle": "Flash sale on phones, laptops and audio",
+  "categories": "Categories",
+  "flashSales": "Flash sales",
+  "recentlyViewed": "Recently viewed",
+  "categoryTitleA": "Cate",
+  "categoryTitleB": "gory",
+  "catPhones": "Phones",
+  "catConsoles": "Consoles",
+  "catLaptops": "Laptops",
+  "catAudio": "Audio",
+  "catWearables": "Wearables",
+  "categorySection": "{name} section",
+  "@categorySection": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sectionTitle": "{name} section",
+  "@sectionTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "wishlistTitleA": "Wish",
+  "wishlistTitleB": "list",
+  "searchWishlist": "Search your wishlist",
+  "wishlistEmptyTitle": "Your wishlist is empty",
+  "wishlistEmptyMessage": "Tap the heart on any product to save it here.",
+  "startShopping": "Start shopping",
+  "addToWishlist": "Add to wishlist",
+  "removeFromWishlist": "Remove from wishlist",
+  "filters": "Filters",
+  "category": "Category",
+  "brand": "Brand",
+  "priceRange": "Price range",
+  "sortBy": "Sort by",
+  "sortRelevance": "Relevance",
+  "sortPriceLow": "Price: low to high",
+  "sortPriceHigh": "Price: high to low",
+  "sortTopRated": "Top rated",
+  "applyFilters": "Apply filters",
+  "noProductsTitle": "No products found",
+  "noProductsMessage": "Try changing your search or filters.",
+  "resultsCount": "{count} results{more}",
+  "@resultsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "details": "Details",
+  "description": "Description",
+  "specifications": "Specifications",
+  "inStock": "In stock",
+  "outOfStock": "Out of stock",
+  "onlyLeft": "Only {count} left",
+  "@onlyLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addToCart": "Add to cart",
+  "addedToCart": "Added to cart",
+  "reviewsCount": "{count, plural, =0{No reviews} =1{1 review} other{{count} reviews}}",
+  "@reviewsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "seeReviews": "See all reviews ({count})",
+  "@seeReviews": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reviews": "Reviews",
+  "writeReview": "Write a review",
+  "noReviewsTitle": "No reviews yet",
+  "noReviewsMessage": "Be the first to share your thoughts.",
+  "yourRating": "Your rating",
+  "yourReview": "Your review",
+  "reviewHint": "What did you like or dislike?",
+  "ratingRequired": "Please select a rating",
+  "submitReview": "Submit review",
+  "reviewThanks": "Thanks for your review!",
+  "starsCount": "{n} stars",
+  "@starsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cartTitle": "My cart",
+  "cartEmptyTitle": "Your cart is empty",
+  "cartEmptyMessage": "Looks like you haven't added anything yet.",
+  "itemRemoved": "Item removed",
+  "itemsCount": "{count, plural, =1{1 item} other{{count} items}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "subtotal": "Subtotal",
+  "shippingAtCheckout": "Shipping is calculated at checkout",
+  "checkout": "Checkout",
+  "items": "Items",
+  "deliveryAddress": "Delivery address",
+  "deliveryOption": "Delivery option",
+  "deliveryStandard": "Standard delivery",
+  "deliveryExpress": "Express delivery",
+  "deliveryPickup": "Store pickup",
+  "etaDays": "{min}-{max} business days",
+  "@etaDays": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "etaPickup": "Ready within 24 hours",
+  "paymentMethod": "Payment method",
+  "payCard": "Credit / debit card",
+  "payCardSubtitle": "Visa, Mastercard and more",
+  "payCardSecure": "Pay securely with Stripe",
+  "payCod": "Cash on delivery",
+  "payCodSubtitle": "Pay when your order arrives",
+  "addCard": "Add card",
+  "addNewCard": "Add new card",
+  "saveCard": "Save card",
+  "changeCard": "Use another card",
+  "cvcConfirm": "Security code (CVC)",
+  "noCardsTitle": "No saved cards",
+  "noCardsMessage": "Add a card to pay with. You can add more cards any time.",
+  "addCardFirst": "Please add a card to continue",
+  "expiresOn": "Expires {date}",
+  "@expiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cardSaveNote": "We only keep the last 4 digits. Your CVC is never stored.",
+  "guest": "Guest",
+  "continueAsGuest": "Continue as guest",
+  "signInRequiredTitle": "Sign in to continue",
+  "signInRequiredMessage": "Create a free account or sign in to checkout, review products and track orders. Your cart is kept.",
+  "guestProfileMessage": "Sign in to manage orders, addresses and cards",
+  "notNow": "Not now",
+  "cancelOrder": "Cancel order",
+  "keepOrder": "Keep order",
+  "cancelOrderConfirm": "Are you sure you want to cancel this order? This can't be undone.",
+  "orderCancelled": "Order cancelled",
+  "cancelFailed": "This order can't be cancelled any more",
+  "buyAgain": "Buy again",
+  "itemsAddedToCart": "{count, plural, =1{1 item added to your cart} other{{count} items added to your cart}}",
+  "@itemsAddedToCart": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "paymentMethods": "Payment methods",
+  "deleteCard": "Delete card",
+  "deleteCardConfirm": "Remove the card ending in {last4}?",
+  "@deleteCardConfirm": {
+    "placeholders": {
+      "last4": {
+        "type": "String"
+      }
+    }
+  },
+  "cardsEmptyMessage": "Add a card to pay faster at checkout.",
+  "promoCode": "Promo code",
+  "enterPromoCode": "Enter promo code",
+  "apply": "Apply",
+  "discount": "Discount",
+  "couponApplied": "{code} applied",
+  "@couponApplied": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "couponNotFound": "This code isn't valid",
+  "couponMinSubtotal": "Spend at least {amount} to use this code",
+  "@couponMinSubtotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "recentSearches": "Recent searches",
+  "clearAll": "Clear all",
+  "popularSearches": "Popular searches",
+  "offlineBanner": "No internet connection",
+  "backOnline": "Back online",
+  "orderSummary": "Order summary",
+  "delivery": "Delivery",
+  "total": "Total",
+  "placeOrder": "Place order",
+  "continueToPayment": "Continue to payment",
+  "selectAddressFirst": "Please add a delivery address first",
+  "payment": "Payment",
+  "cardNumber": "Card number",
+  "cardHolder": "Name on card",
+  "expiry": "Expiry date",
+  "invalidCardNumber": "Enter a valid card number",
+  "invalidExpiry": "Enter a valid expiry (MM/YY)",
+  "invalidCvc": "Invalid CVC",
+  "payAmount": "Pay {amount}",
+  "@payAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "processingPayment": "Processing your payment...",
+  "paymentFailedTitle": "Payment failed",
+  "paymentDeclined": "Your card was declined. Please try another card.",
+  "paymentFailedGeneric": "We couldn't process your payment. You were not charged.",
+  "changePaymentMethod": "Change payment method",
+  "testCardHint": "Test mode: use 4242 4242 4242 4242. Card 4000 0000 0000 0002 is declined.",
+  "stripeSheetHint": "You'll enter your card details in a secure Stripe sheet.",
+  "orderPlacedTitle": "Order placed!",
+  "orderPlacedMessage": "Thank you for your purchase. We'll notify you as your order progresses.",
+  "orderNumber": "Order {id}",
+  "@orderNumber": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "trackOrder": "Track order",
+  "continueShopping": "Continue shopping",
+  "notifOrderPlacedTitle": "Order placed",
+  "notifOrderPlacedBody": "Your order {id} was placed successfully.",
+  "@notifOrderPlacedBody": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "myOrders": "My orders",
+  "ordersEmptyTitle": "No orders yet",
+  "ordersEmptyMessage": "When you place an order it will show up here.",
+  "orderNotFound": "Order not found",
+  "orderTracking": "Order tracking",
+  "orderCancelledMessage": "This order was cancelled.",
+  "statusPlaced": "Order placed",
+  "statusConfirmed": "Confirmed",
+  "statusShipped": "Shipped",
+  "statusOutForDelivery": "Out for delivery",
+  "statusDelivered": "Delivered",
+  "statusCancelled": "Cancelled",
+  "myAddresses": "My addresses",
+  "selectAddress": "Select address",
+  "addAddress": "Add address",
+  "editAddress": "Edit address",
+  "saveAddress": "Save address",
+  "deleteAddress": "Delete address",
+  "deleteAddressConfirm": "This address will be removed from your address book.",
+  "addressesEmptyTitle": "No saved addresses",
+  "addressesEmptyMessage": "Add an address to speed up checkout.",
+  "addressLabel": "Label",
+  "addressLabelHint": "Home, Work...",
+  "phone": "Phone number",
+  "streetAddress": "Street address",
+  "city": "City",
+  "stateRegion": "State / Region",
+  "zipCode": "ZIP / Postal code",
+  "country": "Country",
+  "setAsDefault": "Set as default",
+  "defaultLabel": "Default",
+  "addressPrivacy": "Your address is only used to deliver your orders.",
+  "account": "Account",
+  "editProfile": "Edit profile",
+  "saveChanges": "Save changes",
+  "profileUpdated": "Profile updated",
+  "changePassword": "Change password",
+  "currentPassword": "Current password",
+  "newPassword": "New password",
+  "updatePassword": "Update password",
+  "passwordChanged": "Password changed",
+  "notifications": "Notifications",
+  "markAllRead": "Mark all read",
+  "notificationsEmptyTitle": "No notifications",
+  "notificationsEmptyMessage": "Order updates and offers will appear here.",
+  "darkMode": "Dark mode",
+  "settings": "Settings",
+  "appearance": "Appearance",
+  "themeSystem": "System default",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "language": "Language",
+  "about": "About",
+  "version": "Version",
+  "demoMode": "Demo mode",
+  "liveMode": "Live mode",
+  "logOut": "Log out",
+  "logOutConfirm": "Are you sure you want to log out?"
+}

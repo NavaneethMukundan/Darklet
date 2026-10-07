@@ -1,0 +1,26 @@
+[
+  {
+    "id": "n1",
+    "title": "Order shipped",
+    "body": "Your order DK-1042 is on its way.",
+    "createdAt": "2026-10-05T09:30:00",
+    "read": false,
+    "type": "order"
+  },
+  {
+    "id": "n2",
+    "title": "Flash sale is live",
+    "body": "Up to 30% off phones and headphones for 24 hours.",
+    "createdAt": "2026-10-04T08:00:00",
+    "read": false,
+    "type": "promo"
+  },
+  {
+    "id": "n3",
+    "title": "Welcome to Darklet",
+    "body": "Thanks for joining! Explore the latest tech.",
+    "createdAt": "2026-09-30T12:00:00",
+    "read": true,
+    "type": "system"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "code": "DARK10",
+    "type": "percent",
+    "value": 10,
+    "description": "10% off your order"
+  },
+  {
+    "code": "SAVE20",
+    "type": "amount",
+    "value": 20,
+    "minSubtotal": 100,
+    "description": "$20 off orders over $100"
+  },
+  {
+    "code": "FREESHIP",
+    "type": "freeShipping",
+    "description": "Free delivery"
+  }
+]

@@ -1,0 +1,24 @@
+Darklet - Flutter E-commerce Template
+Copyright (c) Navaneeth Mukundan. All rights reserved.
+
+DRAFT TEMPLATE LICENSE - have a lawyer review before you sell this product, and
+adjust it to the marketplace you use (CodeCanyon supplies its own Regular and
+Extended licenses that replace this file).
+
+REGULAR LICENSE
+You may use this source code in ONE end product (a single app), whether
+free or paid for by end users, for you or for one client. You may modify it.
+
+EXTENDED LICENSE
+You may use this source code in ONE end product that is sold to end users
+in a way that charges for access to the product itself (e.g. SaaS or white-label
+reselling), or in multiple products as stated on your purchase receipt.
+
+YOU MAY NOT
+- redistribute, resell or share the source code (original or modified) as a
+  template, UI kit or starter kit, or publish it in a public repository;
+- remove this notice from the source files you received.
+
+Third-party components keep their own licenses (see docs/THIRD_PARTY_LICENSES.md).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.

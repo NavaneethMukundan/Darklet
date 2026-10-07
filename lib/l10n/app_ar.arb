@@ -1,0 +1,420 @@
+{
+  "@@locale": "ar",
+  "appName": "Darklet",
+  "skip": "تخطي",
+  "next": "التالي",
+  "getStarted": "ابدأ الآن",
+  "cancel": "إلغاء",
+  "delete": "حذف",
+  "edit": "تعديل",
+  "remove": "إزالة",
+  "undo": "تراجع",
+  "retry": "إعادة المحاولة",
+  "tryAgain": "حاول مرة أخرى",
+  "reset": "إعادة ضبط",
+  "all": "الكل",
+  "or": "أو",
+  "free": "مجاني",
+  "change": "تغيير",
+  "viewAll": "عرض الكل",
+  "viewCart": "عرض السلة",
+  "somethingWentWrong": "حدث خطأ ما",
+  "tryAgainMessage": "يرجى التحقق من الاتصال والمحاولة مرة أخرى.",
+  "noResults": "لا توجد نتائج",
+  "fieldRequired": "هذا الحقل مطلوب",
+  "invalidEmail": "أدخل بريدًا إلكترونيًا صالحًا",
+  "passwordTooShort": "يجب ألا تقل كلمة المرور عن {n} أحرف",
+  "@passwordTooShort": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "passwordsDontMatch": "كلمتا المرور غير متطابقتين",
+  "onboardTitle1": "ابدأ بإنشاء\nحساب",
+  "onboardBody1": "اكتشف طريقة أذكى للتسوق.\nسجّل الدخول للبدء.",
+  "onboardTitle2": "اعثر على ما\nتبحث عنه",
+  "onboardBody2": "تصفح الهواتف وأجهزة الألعاب والحواسيب والصوتيات.\nصفّ وافرز في ثوانٍ.",
+  "onboardTitle3": "كل شيء جاهز!",
+  "onboardBody3": "تم تقديم طلبك وهو في الطريق.\nاسترح، ونحن نتولى الباقي.",
+  "welcomeBack": "مرحبًا بعودتك",
+  "enterDetails": "أدخل بياناتك أدناه",
+  "email": "البريد الإلكتروني",
+  "emailHint": "you@example.com",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "forgotPassword": "هل نسيت كلمة المرور؟",
+  "signIn": "تسجيل الدخول",
+  "signUp": "إنشاء حساب",
+  "continueWithGoogle": "المتابعة عبر Google",
+  "noAccount": "ليس لديك حساب؟",
+  "haveAccount": "لديك حساب بالفعل؟",
+  "createAccount": "إنشاء حساب",
+  "registerSubtitle": "انضم إلى Darklet في ثوانٍ",
+  "fullName": "الاسم الكامل",
+  "forgotPasswordTitle": "إعادة تعيين كلمة المرور",
+  "forgotPasswordSubtitle": "سنرسل إليك رابطًا لإعادة تعيين كلمة المرور",
+  "sendResetLink": "إرسال رابط الاستعادة",
+  "resetLinkSent": "إذا كان الحساب موجودًا فسيصلك رابط الاستعادة قريبًا.",
+  "demoHint": "حساب تجريبي: {email} / {password}\nاضغط للتعبئة",
+  "@demoHint": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      },
+      "password": {
+        "type": "String"
+      }
+    }
+  },
+  "errInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "errEmailInUse": "يوجد حساب بهذا البريد الإلكتروني بالفعل",
+  "errWeakPassword": "كلمة المرور ضعيفة جدًا",
+  "errUserNotFound": "لم يتم العثور على حساب",
+  "errRequiresRecentLogin": "يرجى تسجيل الدخول مرة أخرى للمتابعة",
+  "errCancelled": "تم إلغاء تسجيل الدخول",
+  "errNetwork": "خطأ في الشبكة. تحقق من اتصالك.",
+  "navHome": "الرئيسية",
+  "navCategories": "الفئات",
+  "navWishlist": "المفضلة",
+  "navProfile": "حسابي",
+  "hello": "مرحبًا، {name}",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomeTo": "مرحبًا بك في",
+  "searchProducts": "ابحث عن المنتجات...",
+  "promoTitle": "خصم يصل إلى 30%",
+  "promoSubtitle": "تخفيضات على الهواتف والحواسيب والصوتيات",
+  "categories": "الفئات",
+  "flashSales": "عروض سريعة",
+  "recentlyViewed": "شوهدت مؤخرًا",
+  "categoryTitleA": "",
+  "categoryTitleB": "الفئات",
+  "catPhones": "الهواتف",
+  "catConsoles": "أجهزة الألعاب",
+  "catLaptops": "الحواسيب",
+  "catAudio": "الصوتيات",
+  "catWearables": "الأجهزة القابلة للارتداء",
+  "categorySection": "قسم {name}",
+  "@categorySection": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sectionTitle": "قسم {name}",
+  "@sectionTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "wishlistTitleA": "",
+  "wishlistTitleB": "المفضلة",
+  "searchWishlist": "ابحث في المفضلة",
+  "wishlistEmptyTitle": "قائمة المفضلة فارغة",
+  "wishlistEmptyMessage": "اضغط على القلب في أي منتج لحفظه هنا.",
+  "startShopping": "ابدأ التسوق",
+  "addToWishlist": "أضف إلى المفضلة",
+  "removeFromWishlist": "أزل من المفضلة",
+  "filters": "التصفية",
+  "category": "الفئة",
+  "brand": "العلامة التجارية",
+  "priceRange": "نطاق السعر",
+  "sortBy": "ترتيب حسب",
+  "sortRelevance": "الأكثر صلة",
+  "sortPriceLow": "السعر: من الأقل للأعلى",
+  "sortPriceHigh": "السعر: من الأعلى للأقل",
+  "sortTopRated": "الأعلى تقييمًا",
+  "applyFilters": "تطبيق التصفية",
+  "noProductsTitle": "لا توجد منتجات",
+  "noProductsMessage": "جرّب تغيير البحث أو التصفية.",
+  "resultsCount": "{count} نتيجة{more}",
+  "@resultsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "more": {
+        "type": "String"
+      }
+    }
+  },
+  "details": "التفاصيل",
+  "description": "الوصف",
+  "specifications": "المواصفات",
+  "inStock": "متوفر",
+  "outOfStock": "غير متوفر",
+  "onlyLeft": "متبقي {count} فقط",
+  "@onlyLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addToCart": "أضف إلى السلة",
+  "addedToCart": "تمت الإضافة إلى السلة",
+  "reviewsCount": "{count, plural, =0{لا مراجعات} =1{مراجعة واحدة} =2{مراجعتان} few{{count} مراجعات} many{{count} مراجعة} other{{count} مراجعة}}",
+  "@reviewsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "seeReviews": "عرض كل المراجعات ({count})",
+  "@seeReviews": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reviews": "المراجعات",
+  "writeReview": "اكتب مراجعة",
+  "noReviewsTitle": "لا توجد مراجعات بعد",
+  "noReviewsMessage": "كن أول من يشارك رأيه.",
+  "yourRating": "تقييمك",
+  "yourReview": "مراجعتك",
+  "reviewHint": "ما الذي أعجبك أو لم يعجبك؟",
+  "ratingRequired": "يرجى اختيار تقييم",
+  "submitReview": "إرسال المراجعة",
+  "reviewThanks": "شكرًا على مراجعتك!",
+  "starsCount": "{n} نجوم",
+  "@starsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cartTitle": "سلتي",
+  "cartEmptyTitle": "سلتك فارغة",
+  "cartEmptyMessage": "يبدو أنك لم تضف أي شيء بعد.",
+  "itemRemoved": "تمت إزالة المنتج",
+  "itemsCount": "{count, plural, =0{لا عناصر} =1{عنصر واحد} =2{عنصران} few{{count} عناصر} many{{count} عنصرًا} other{{count} عنصر}}",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "subtotal": "المجموع الفرعي",
+  "shippingAtCheckout": "يتم احتساب الشحن عند إتمام الشراء",
+  "checkout": "إتمام الشراء",
+  "items": "المنتجات",
+  "deliveryAddress": "عنوان التوصيل",
+  "deliveryOption": "خيار التوصيل",
+  "deliveryStandard": "توصيل عادي",
+  "deliveryExpress": "توصيل سريع",
+  "deliveryPickup": "الاستلام من المتجر",
+  "etaDays": "{min}-{max} أيام عمل",
+  "@etaDays": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "etaPickup": "جاهز خلال 24 ساعة",
+  "paymentMethod": "طريقة الدفع",
+  "payCard": "بطاقة ائتمان / خصم",
+  "payCardSubtitle": "فيزا وماستركارد وغيرها",
+  "payCardSecure": "ادفع بأمان عبر Stripe",
+  "payCod": "الدفع عند الاستلام",
+  "payCodSubtitle": "ادفع عند وصول طلبك",
+  "addCard": "إضافة بطاقة",
+  "addNewCard": "إضافة بطاقة جديدة",
+  "saveCard": "حفظ البطاقة",
+  "changeCard": "استخدام بطاقة أخرى",
+  "cvcConfirm": "رمز الأمان (CVC)",
+  "noCardsTitle": "لا توجد بطاقات محفوظة",
+  "noCardsMessage": "أضف بطاقة للدفع بها. يمكنك إضافة بطاقات أخرى في أي وقت.",
+  "addCardFirst": "يرجى إضافة بطاقة للمتابعة",
+  "expiresOn": "تنتهي في {date}",
+  "@expiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cardSaveNote": "نحتفظ بآخر 4 أرقام فقط. لا يتم حفظ رمز CVC أبدًا.",
+  "guest": "زائر",
+  "continueAsGuest": "المتابعة كزائر",
+  "signInRequiredTitle": "سجّل الدخول للمتابعة",
+  "signInRequiredMessage": "أنشئ حسابًا مجانيًا أو سجّل الدخول لإتمام الشراء وتقييم المنتجات وتتبع الطلبات. سلتك محفوظة.",
+  "guestProfileMessage": "سجّل الدخول لإدارة الطلبات والعناوين والبطاقات",
+  "notNow": "ليس الآن",
+  "cancelOrder": "إلغاء الطلب",
+  "keepOrder": "الاحتفاظ بالطلب",
+  "cancelOrderConfirm": "هل أنت متأكد من إلغاء هذا الطلب؟ لا يمكن التراجع عن ذلك.",
+  "orderCancelled": "تم إلغاء الطلب",
+  "cancelFailed": "لا يمكن إلغاء هذا الطلب بعد الآن",
+  "buyAgain": "اشترِ مرة أخرى",
+  "itemsAddedToCart": "{count, plural, =1{تمت إضافة عنصر واحد إلى سلتك} =2{تمت إضافة عنصرين إلى سلتك} few{تمت إضافة {count} عناصر إلى سلتك} many{تمت إضافة {count} عنصرًا إلى سلتك} other{تمت إضافة {count} عنصر إلى سلتك}}",
+  "@itemsAddedToCart": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "paymentMethods": "طرق الدفع",
+  "deleteCard": "حذف البطاقة",
+  "deleteCardConfirm": "هل تريد إزالة البطاقة التي تنتهي بـ {last4}؟",
+  "@deleteCardConfirm": {
+    "placeholders": {
+      "last4": {
+        "type": "String"
+      }
+    }
+  },
+  "cardsEmptyMessage": "أضف بطاقة لتدفع بشكل أسرع عند إتمام الشراء.",
+  "promoCode": "رمز الخصم",
+  "enterPromoCode": "أدخل رمز الخصم",
+  "apply": "تطبيق",
+  "discount": "الخصم",
+  "couponApplied": "تم تطبيق {code}",
+  "@couponApplied": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "couponNotFound": "هذا الرمز غير صالح",
+  "couponMinSubtotal": "أنفق {amount} على الأقل لاستخدام هذا الرمز",
+  "@couponMinSubtotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "recentSearches": "عمليات البحث الأخيرة",
+  "clearAll": "مسح الكل",
+  "popularSearches": "عمليات بحث شائعة",
+  "offlineBanner": "لا يوجد اتصال بالإنترنت",
+  "backOnline": "عاد الاتصال",
+  "orderSummary": "ملخص الطلب",
+  "delivery": "التوصيل",
+  "total": "الإجمالي",
+  "placeOrder": "تأكيد الطلب",
+  "continueToPayment": "المتابعة للدفع",
+  "selectAddressFirst": "يرجى إضافة عنوان توصيل أولًا",
+  "payment": "الدفع",
+  "cardNumber": "رقم البطاقة",
+  "cardHolder": "الاسم على البطاقة",
+  "expiry": "تاريخ الانتهاء",
+  "invalidCardNumber": "أدخل رقم بطاقة صالحًا",
+  "invalidExpiry": "أدخل تاريخ انتهاء صالحًا (شهر/سنة)",
+  "invalidCvc": "رمز CVC غير صالح",
+  "payAmount": "ادفع {amount}",
+  "@payAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "processingPayment": "جارٍ معالجة الدفع...",
+  "paymentFailedTitle": "فشلت عملية الدفع",
+  "paymentDeclined": "تم رفض بطاقتك. يرجى تجربة بطاقة أخرى.",
+  "paymentFailedGeneric": "تعذرت معالجة الدفع. لم يتم خصم أي مبلغ.",
+  "changePaymentMethod": "تغيير طريقة الدفع",
+  "testCardHint": "وضع الاختبار: استخدم 4242 4242 4242 4242. البطاقة 4000 0000 0000 0002 يتم رفضها.",
+  "stripeSheetHint": "ستُدخل بيانات بطاقتك في نافذة Stripe الآمنة.",
+  "orderPlacedTitle": "تم تأكيد الطلب!",
+  "orderPlacedMessage": "شكرًا على طلبك. سنخبرك عند كل تحديث لحالة الطلب.",
+  "orderNumber": "الطلب {id}",
+  "@orderNumber": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "trackOrder": "تتبع الطلب",
+  "continueShopping": "متابعة التسوق",
+  "notifOrderPlacedTitle": "تم تأكيد الطلب",
+  "notifOrderPlacedBody": "تم تأكيد طلبك {id} بنجاح.",
+  "@notifOrderPlacedBody": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "myOrders": "طلباتي",
+  "ordersEmptyTitle": "لا توجد طلبات بعد",
+  "ordersEmptyMessage": "ستظهر طلباتك هنا بعد تقديمها.",
+  "orderNotFound": "الطلب غير موجود",
+  "orderTracking": "تتبع الطلب",
+  "orderCancelledMessage": "تم إلغاء هذا الطلب.",
+  "statusPlaced": "تم تقديم الطلب",
+  "statusConfirmed": "تم التأكيد",
+  "statusShipped": "تم الشحن",
+  "statusOutForDelivery": "في الطريق إليك",
+  "statusDelivered": "تم التسليم",
+  "statusCancelled": "ملغي",
+  "myAddresses": "عناويني",
+  "selectAddress": "اختر العنوان",
+  "addAddress": "إضافة عنوان",
+  "editAddress": "تعديل العنوان",
+  "saveAddress": "حفظ العنوان",
+  "deleteAddress": "حذف العنوان",
+  "deleteAddressConfirm": "سيتم حذف هذا العنوان من دفتر العناوين.",
+  "addressesEmptyTitle": "لا توجد عناوين محفوظة",
+  "addressesEmptyMessage": "أضف عنوانًا لتسريع إتمام الشراء.",
+  "addressLabel": "التسمية",
+  "addressLabelHint": "المنزل، العمل...",
+  "phone": "رقم الهاتف",
+  "streetAddress": "عنوان الشارع",
+  "city": "المدينة",
+  "stateRegion": "الولاية / المنطقة",
+  "zipCode": "الرمز البريدي",
+  "country": "الدولة",
+  "setAsDefault": "تعيين كافتراضي",
+  "defaultLabel": "افتراضي",
+  "addressPrivacy": "يُستخدم عنوانك فقط لتوصيل طلباتك.",
+  "account": "الحساب",
+  "editProfile": "تعديل الملف الشخصي",
+  "saveChanges": "حفظ التغييرات",
+  "profileUpdated": "تم تحديث الملف الشخصي",
+  "changePassword": "تغيير كلمة المرور",
+  "currentPassword": "كلمة المرور الحالية",
+  "newPassword": "كلمة المرور الجديدة",
+  "updatePassword": "تحديث كلمة المرور",
+  "passwordChanged": "تم تغيير كلمة المرور",
+  "notifications": "الإشعارات",
+  "markAllRead": "تعليم الكل كمقروء",
+  "notificationsEmptyTitle": "لا توجد إشعارات",
+  "notificationsEmptyMessage": "ستظهر هنا تحديثات الطلبات والعروض.",
+  "darkMode": "الوضع الداكن",
+  "settings": "الإعدادات",
+  "appearance": "المظهر",
+  "themeSystem": "حسب النظام",
+  "themeLight": "فاتح",
+  "themeDark": "داكن",
+  "language": "اللغة",
+  "about": "حول",
+  "version": "الإصدار",
+  "demoMode": "الوضع التجريبي",
+  "liveMode": "الوضع المباشر",
+  "logOut": "تسجيل الخروج",
+  "logOutConfirm": "هل أنت متأكد من تسجيل الخروج؟"
+}

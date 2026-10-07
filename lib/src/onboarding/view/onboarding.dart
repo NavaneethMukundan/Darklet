@@ -1,65 +1,90 @@
-import 'package:darklet/src/auth/view/login.dart';
+import 'package:darklet/src/app_dependencies.dart';
 import 'package:darklet/src/onboarding/widget/onboard_widget.dart';
-import 'package:darklet/src/utils/constants/asset_store.dart';
-import 'package:darklet/src/utils/constants/screen_route.dart';
+import 'package:darklet/src/utils/constants/app_routes.dart';
+import 'package:darklet/src/utils/helpers/l10n_ext.dart';
+import 'package:darklet/src/utils/router/app_router.dart';
+import 'package:darklet/src/utils/themes/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class OnboardingScreenOne extends StatelessWidget {
-  const OnboardingScreenOne({super.key});
+/// Three-page intro. Remembers that it was shown.
+class OnboardingScreen extends StatefulWidget {
+  static const seenKey = 'onboarding_seen';
+  const OnboardingScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: OnboardingWidget(
-              image: AssetStore().onb1,
-              title: 'Start by creating\nan account',
-              subtitle:
-                  'Discover a smarter way to shop, sell, and connect.\nLet’s get started by signing in to your account.',
-              currentIndex: 1,
-              onNext: () {
-                pushReplacementRoute(context, const OnboardingScreenTwo());
-              })),
-    );
-  }
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class OnboardingScreenThree extends StatelessWidget {
-  const OnboardingScreenThree({super.key});
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  final _controller = PageController();
+  int _page = 0;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: OnboardingWidget(
-              image: AssetStore().onb3,
-              title: 'You’re All Set!',
-              subtitle:
-                  'Your order is placed and on its way.\nSit back, relax — we’ll handle the rest.',
-              currentIndex: 3,
-              onNext: () {
-                pushReplacementRoute(context, const LoginScreen());
-              })),
-    );
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
-}
 
-class OnboardingScreenTwo extends StatelessWidget {
-  const OnboardingScreenTwo({super.key});
+  Future<void> _finish() async {
+    await context.read<AppDependencies>().prefs.setBool(
+      OnboardingScreen.seenKey,
+      true,
+    );
+    if (mounted) context.pushAndClear(AppRoutes.login);
+  }
+
+  void _next() {
+    if (_page == 2) {
+      _finish();
+    } else {
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeOut,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
+    final pages = [
+      (Icons.person_add_alt_1_rounded, l.onboardTitle1, l.onboardBody1),
+      (Icons.search_rounded, l.onboardTitle2, l.onboardBody2),
+      (Icons.local_shipping_rounded, l.onboardTitle3, l.onboardBody3),
+    ];
     return Scaffold(
       body: SafeArea(
-          child: OnboardingWidget(
-              image: AssetStore().onb2,
-              title: 'Tell Us What\nYou’re Looking For',
-              subtitle:
-                  'Buying or selling? We got you.\nChoose what you need and explore.',
-              currentIndex: 2,
-              onNext: () {
-                pushReplacementRoute(context, const OnboardingScreenThree());
-              })),
+        child: Column(
+          children: [
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: TextButton(
+                onPressed: _finish,
+                child: Text(l.skip, style: TextStyle(color: color.kGrey)),
+              ),
+            ),
+            Expanded(
+              child: PageView.builder(
+                controller: _controller,
+                itemCount: pages.length,
+                onPageChanged: (i) => setState(() => _page = i),
+                itemBuilder: (_, i) => OnboardingPage(
+                  icon: pages[i].$1,
+                  title: pages[i].$2,
+                  subtitle: pages[i].$3,
+                ),
+              ),
+            ),
+            OnboardingFooter(
+              currentIndex: _page,
+              count: pages.length,
+              label: _page == pages.length - 1 ? l.getStarted : l.next,
+              onNext: _next,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
