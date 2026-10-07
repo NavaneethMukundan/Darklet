@@ -143,7 +143,11 @@ class _PushBridgeState extends State<_PushBridge> {
     _push!.start();
     _push!.notifications.listen((n) {
       inbox.add(n);
-      _showBanner(n);
+      // With permission the OS shows a real notification; otherwise fall
+      // back to an in-app bar so the user still sees it.
+      _push!.systemNotificationsAllowed.then((ok) {
+        if (!ok && mounted) _showBanner(n);
+      });
     });
     _auth = context.read<AuthController>()..addListener(_sync);
     _sync();
