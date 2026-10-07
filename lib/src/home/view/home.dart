@@ -1,313 +1,365 @@
+import 'package:darklet/src/auth/controller/auth_controller.dart';
 import 'package:darklet/src/home/controller/home_controller.dart';
-import 'package:darklet/src/home/widget/screen_gradient_widget.dart';
+import 'package:darklet/src/home/controller/navigation_controller.dart';
+import 'package:darklet/src/home/widget/flash_sale_timer.dart';
 import 'package:darklet/src/home/widget/search_field_widget.dart';
-import 'package:darklet/src/onboarding/view/splash_screen.dart';
-import 'package:darklet/src/utils/constants/asset_store.dart';
+import 'package:darklet/src/models/category.dart';
+import 'package:darklet/src/models/product.dart';
+import 'package:darklet/src/notifications/controller/notification_controller.dart';
+import 'package:darklet/src/utils/constants/app_routes.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
+import 'package:darklet/src/utils/helpers/category_helpers.dart';
+import 'package:darklet/src/utils/helpers/l10n_ext.dart';
+import 'package:darklet/src/utils/helpers/load_status.dart';
+import 'package:darklet/src/utils/router/app_router.dart';
+import 'package:darklet/src/utils/themes/colors/colors.dart';
 import 'package:darklet/src/utils/themes/styles/font_style.dart';
+import 'package:darklet/src/utils/widgets/bottom_navigation.dart';
+import 'package:darklet/src/utils/widgets/buttons.dart';
+import 'package:darklet/src/utils/widgets/common_widgets.dart';
+import 'package:darklet/src/utils/widgets/product_card.dart';
+import 'package:darklet/src/utils/widgets/skeleton.dart';
+import 'package:darklet/src/utils/widgets/states.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) context.read<HomeController>().load();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ScreenGradientWidget(
+    final l = context.l10n;
+    final home = context.watch<HomeController>();
+    return AppBackground(
       child: Scaffold(
-        backgroundColor: color.kTransparent,
-        appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(22),
-              bottomRight: Radius.circular(22),
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          bottom: false,
+          child: RefreshIndicator(
+            color: color.primaryDarkColor,
+            onRefresh: () => home.load(force: true),
+            child: ContentWidth(
+              child: LayoutBuilder(
+                builder: (context, c) {
+                  final cols = Responsive.gridColumns(c.maxWidth);
+                  return ListView(
+                    physics: const AlwaysScrollableScrollPhysics(
+                      parent: BouncingScrollPhysics(),
+                    ),
+                    padding: const EdgeInsets.fromLTRB(
+                      16,
+                      12,
+                      16,
+                      BottomNavigation.barClearance,
+                    ),
+                    children: [
+                      const _Header(),
+                      kHeight20,
+                      SearchFieldWidget(
+                        content: l.searchProducts,
+                        onTap: () => context.push(AppRoutes.search),
+                      ),
+                      kHeight20,
+                      const _PromoBanner(),
+                      if (home.status == LoadStatus.error)
+                        SizedBox(
+                          height: 320,
+                          child: ErrorState(
+                            onRetry: () => home.load(force: true),
+                          ),
+                        )
+                      else if (home.status != LoadStatus.loaded)
+                        ..._skeleton(cols)
+                      else ...[
+                        kHeight25,
+                        SectionHeader(
+                          l.categories,
+                          actionLabel: l.viewAll,
+                          onAction: () =>
+                              context.read<NavigationController>().select(1),
+                        ),
+                        kHeight15,
+                        _CategoryRow(categories: home.categories),
+                        kHeight25,
+                        Row(
+                          children: [
+                            Flexible(
+                              child: Text(
+                                l.flashSales,
+                                style: ts(
+                                  20,
+                                  w: FontWeight.w600,
+                                  c: color.kBlackSecondary,
+                                ),
+                              ),
+                            ),
+                            kWidth10,
+                            const FlashSaleTimer(),
+                          ],
+                        ),
+                        kHeight15,
+                        _ProductGrid(
+                          products: home.flashSale,
+                          columns: cols,
+                          heroPrefix: 'flash',
+                        ),
+                        if (home.recentlyViewed.isNotEmpty) ...[
+                          kHeight25,
+                          SectionHeader(l.recentlyViewed),
+                          kHeight15,
+                          _RecentRow(products: home.recentlyViewed),
+                        ],
+                      ],
+                    ],
+                  );
+                },
+              ),
             ),
           ),
-          toolbarHeight: 80,
-          backgroundColor: color.kTransparent,
-          title: Column(
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _skeleton(int cols) => [
+    kHeight25,
+    const Skeleton(height: 90, radius: 20),
+    kHeight25,
+    ProductGridSkeleton(columns: cols, count: cols * 2),
+  ];
+}
+
+class _Header extends StatelessWidget {
+  const _Header();
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final user = context.watch<AuthController>().user;
+    final unread = context.select<NotificationController, int>(
+      (n) => n.unreadCount,
+    );
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: () => context.read<NavigationController>().select(3),
+          child: UserAvatar(source: user?.avatarUrl, size: 52),
+        ),
+        kWidth10,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 55,
-                    height: 55,
-                    decoration: BoxDecoration(
-                        color: color.kLightGrey.withOpacity(0.5),
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage(AssetStore().profilePicture))),
-                  ),
-                  kWidth10,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hello , Navaneeth',
-                        style: FontStyles().randomTextStylePoppins(
-                            size: 18,
-                            weight: FontWeight.w500,
-                            color: color.kBlack),
+              Text(
+                l.hello(user?.name.split(' ').first ?? l.guest),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: ts(17, w: FontWeight.w600),
+              ),
+              Text.rich(
+                TextSpan(
+                  text: '${l.welcomeTo} ',
+                  style: ts(13, w: FontWeight.w400, c: color.kGrey),
+                  children: [
+                    TextSpan(
+                      text: 'Darklet',
+                      style: ts(
+                        13,
+                        w: FontWeight.w600,
+                        c: color.primaryDarkColor,
                       ),
-                      RichText(
-                        text: TextSpan(
-                            text: 'Welcome to ',
-                            style: FontStyles().randomTextStylePoppins(
-                                size: 14,
-                                weight: FontWeight.w500,
-                                color: color.kGrey),
-                            children: [
-                              TextSpan(
-                                text: 'Darklet',
-                                style: FontStyles().randomTextStylePoppins(
-                                    size: 14,
-                                    weight: FontWeight.w500,
-                                    color: const Color(0XFF6CAC00)),
-                              ),
-                            ]),
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  Stack(
-                    children: [
-                      Container(
-                        width: 55,
-                        height: 55,
-                        decoration: BoxDecoration(
-                          color: color.kWhite,
-                          shape: BoxShape.circle,
-                          border:
-                              Border.all(color: color.kLightGrey, width: 0.5),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.notifications_none_rounded,
-                            color: color.kGrey,
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 38,
-                        child: Icon(
-                          Icons.circle,
-                          color: color.primaryColor,
-                          size: 16,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
-        body: Consumer<HomeController>(builder: (context, controller, _) {
-          return SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    kHeight25,
-                    const SearchFieldWidget(
-                      content: 'Search Products....',
-                    ),
-                    kHeight20,
-                    Container(
-                      width: double.infinity,
-                      height: 168,
-                      decoration: BoxDecoration(
-                          color: color.kLightGrey.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(22),
-                          image: const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  'https://media.very.co.uk/v/very/W57N6_SQ8_0000002889_DESERT_DVvL'))),
-                    ),
-                    kHeight30,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Categories',
-                            style: FontStyles().randomTextStylePoppins(
-                                size: 22,
-                                weight: FontWeight.w600,
-                                color: color.kBlackSecondary)),
-                        Text('View all',
-                            style: FontStyles().randomTextStylePoppins(
-                                size: 15,
-                                weight: FontWeight.w400,
-                                color: color.primaryDarkColor)),
-                      ],
-                    ),
-                    kHeight20,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(
-                        4,
-                        (index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 15),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(5),
-                                  width: 85,
-                                  height: 85,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    gradient: const RadialGradient(colors: [
-                                      Color(0XFFD6F3A2),
-                                      Color(0XFFF3F3F3),
-                                    ]),
-                                    image: DecorationImage(
-                                        image: AssetImage(controller
-                                            .homeCategoriesImages[index])),
-                                  ),
-                                ),
-                                kHeight5,
-                                Text(
-                                  controller.homeCategoriesName[index],
-                                  style: FontStyles().randomTextStylePoppins(
-                                      size: 15,
-                                      weight: FontWeight.w500,
-                                      color: color.kBlackSecondary),
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    kHeight25,
-                    Row(
-                      children: [
-                        Text('Flash Sales',
-                            style: FontStyles().randomTextStylePoppins(
-                                size: 22,
-                                weight: FontWeight.w600,
-                                color: color.kBlackSecondary)),
-                        kWidth5,
-                        Container(
-                          height: 20,
-                          width: 75,
-                          decoration: BoxDecoration(color: color.primaryColor),
-                          child: Center(
-                            child: Text('22.50.45',
-                                style: FontStyles().randomTextStylePoppins(
-                                    size: 13,
-                                    weight: FontWeight.w400,
-                                    color: color.kBlack)),
-                          ),
-                        ),
-                      ],
-                    ),
-                    kHeight15,
-                    GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.flashSaleImages.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        childAspectRatio: 0.85,
-                      ),
-                      itemBuilder: (context, index) {
-                        return Stack(
-                          children: [
-                            Container(
-                              height: 200,
-                              decoration: BoxDecoration(
-                                color: color.kWhite,
-                                borderRadius: BorderRadius.circular(22),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: color.kBlack.withOpacity(0.2),
-                                    blurRadius: 2,
-                                    offset: const Offset(0, 0),
-                                  )
-                                ],
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 115,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: color.kLightGrey.withOpacity(0.2),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(22),
-                                        topRight: Radius.circular(22),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.network(
-                                          controller.flashSaleImages[index]),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                        'iPhone 16 Pro Max 256GB Natural Titanium',
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: FontStyles()
-                                            .randomTextStylePoppins(
-                                                size: 14,
-                                                weight: FontWeight.w400,
-                                                color: color.kBlack)),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text('\$799',
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: FontStyles()
-                                            .randomTextStylePoppins(
-                                                size: 16,
-                                                weight: FontWeight.w600,
-                                                color: color.kBlack)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              left: MediaQuery.of(context).size.width / 2.81,
-                              child: Container(
-                                height: 33,
-                                width: 33,
-                                decoration: BoxDecoration(
-                                  color: color.kWhite,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: color.kBlack.withOpacity(0.2),
-                                      blurRadius: 1,
-                                      offset: const Offset(0, 0),
-                                    )
-                                  ],
-                                ),
-                                child: Image.asset(AssetStore().wishlistIcon),
-                              ),
-                            )
-                          ],
-                        );
-                      },
-                    ),
-                    kHeight60
-                  ],
+        kWidth10,
+        SquareIconButton(
+          icon: Icons.notifications_none_rounded,
+          tooltip: l.notifications,
+          onTap: () => context.push(AppRoutes.notifications),
+          badge: unread == 0 ? null : CountBadge(unread),
+        ),
+        kWidth10,
+        const CartIconButton(),
+      ],
+    );
+  }
+}
+
+/// Promo banner drawn in code (gradient + icon) - no photo to license.
+class _PromoBanner extends StatelessWidget {
+  const _PromoBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Container(
+      height: 150,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        gradient: LinearGradient(
+          begin: AlignmentDirectional.topStart,
+          end: AlignmentDirectional.bottomEnd,
+          colors: [color.primaryDarkColor, const Color(0xFF2F5A00)],
+        ),
+      ),
+      child: Stack(
+        children: [
+          PositionedDirectional(
+            end: -10,
+            bottom: -20,
+            child: Icon(
+              Icons.devices_rounded,
+              size: 130,
+              color: Colors.white.withValues(alpha: 0.18),
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                l.promoTitle,
+                style: ts(22, w: FontWeight.w700, c: Colors.white),
+              ),
+              kHeight5,
+              Text(
+                l.promoSubtitle,
+                style: ts(
+                  13,
+                  w: FontWeight.w400,
+                  c: Colors.white.withValues(alpha: 0.9),
                 ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CategoryRow extends StatelessWidget {
+  final List<Category> categories;
+  const _CategoryRow({required this.categories});
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return SizedBox(
+      height: 108,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        itemCount: categories.length,
+        separatorBuilder: (_, _) => kWidth20,
+        itemBuilder: (_, i) {
+          final c = categories[i];
+          final name = categoryLabel(l, c.id, c.name);
+          return InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: () => context.push(
+              AppRoutes.products,
+              args: ProductListArgs(categoryId: c.id, title: name),
+            ),
+            child: SizedBox(
+              width: 80,
+              child: Column(
+                children: [
+                  Container(
+                    width: 74,
+                    height: 74,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: RadialGradient(
+                        colors: [color.secondaryColor, color.kWhiteSecondary],
+                      ),
+                    ),
+                    child: Icon(
+                      categoryIcon(c.id),
+                      size: 32,
+                      color: color.primaryDarkColor,
+                    ),
+                  ),
+                  kHeight5,
+                  Text(
+                    name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: ts(13, c: color.kBlackSecondary),
+                  ),
+                ],
               ),
             ),
           );
-        }),
+        },
+      ),
+    );
+  }
+}
+
+class _ProductGrid extends StatelessWidget {
+  final List<Product> products;
+  final int columns;
+  final String heroPrefix;
+  const _ProductGrid({
+    required this.products,
+    required this.columns,
+    required this.heroPrefix,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: products.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: columns,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+        childAspectRatio: 0.78,
+      ),
+      itemBuilder: (_, i) =>
+          ProductCard(product: products[i], heroPrefix: heroPrefix),
+    );
+  }
+}
+
+class _RecentRow extends StatelessWidget {
+  final List<Product> products;
+  const _RecentRow({required this.products});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 230,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        itemCount: products.length,
+        separatorBuilder: (_, _) => kWidth15,
+        itemBuilder: (_, i) => SizedBox(
+          width: 160,
+          child: ProductCard(product: products[i], heroPrefix: 'recent'),
+        ),
       ),
     );
   }

@@ -1,198 +1,220 @@
-import 'package:darklet/src/home/widget/search_field_widget.dart';
-import 'package:darklet/src/onboarding/view/splash_screen.dart';
-import 'package:darklet/src/utils/constants/asset_store.dart';
+import 'package:darklet/src/cart/controller/cart_controller.dart';
+import 'package:darklet/src/cart/controller/wishlist_controller.dart';
+import 'package:darklet/src/home/controller/navigation_controller.dart';
+import 'package:darklet/src/models/product.dart';
+import 'package:darklet/src/utils/constants/app_routes.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
+import 'package:darklet/src/utils/helpers/format.dart';
+import 'package:darklet/src/utils/helpers/l10n_ext.dart';
+import 'package:darklet/src/utils/router/app_router.dart';
+import 'package:darklet/src/utils/themes/colors/colors.dart';
 import 'package:darklet/src/utils/themes/styles/font_style.dart';
+import 'package:darklet/src/utils/widgets/app_network_image.dart';
+import 'package:darklet/src/utils/widgets/bottom_navigation.dart';
+import 'package:darklet/src/utils/widgets/common_widgets.dart';
+import 'package:darklet/src/utils/widgets/product_card.dart';
+import 'package:darklet/src/utils/widgets/skeleton.dart';
+import 'package:darklet/src/utils/widgets/states.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class WishlistScreen extends StatelessWidget {
+class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
 
   @override
+  State<WishlistScreen> createState() => _WishlistScreenState();
+}
+
+class _WishlistScreenState extends State<WishlistScreen> {
+  String _filter = '';
+
+  @override
   Widget build(BuildContext context) {
+    final l = context.l10n;
+    final wish = context.watch<WishlistController>();
+    final items = wish.items
+        .where((p) => p.name.toLowerCase().contains(_filter.toLowerCase()))
+        .toList();
     return Scaffold(
-        body: SafeArea(
-            child: Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            kHeight25,
-            Center(
-              child: RichText(
-                text: TextSpan(
-                    text: 'Wish',
-                    style: FontStyles().randomTextStylePoppins(
-                        size: 25, weight: FontWeight.bold, color: color.kGrey),
-                    children: [
-                      TextSpan(
-                        text: 'list',
-                        style: FontStyles().randomTextStylePoppins(
-                            size: 25,
-                            weight: FontWeight.bold,
-                            color: const Color(0XFF6CAC00)),
-                      ),
-                    ]),
-              ),
-            ),
-            kHeight15,
-            Row(
-              children: [
-                const Expanded(
-                  child: SearchFieldWidget(
-                    content: 'Search Products....',
-                  ),
-                ),
-                kWidth10,
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      color: color.kWhite,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: color.kLightGrey, width: 0.5),
-                      image: DecorationImage(
-                          image: AssetImage(AssetStore().filterIcon))),
-                )
-              ],
-            ),
-            kHeight30,
-            ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: 123,
-                    decoration: BoxDecoration(
-                      color: color.kWhite,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: color.kLightGrey, width: 0.5),
-                    ),
-                    child: Row(
-                      children: [
-                        kWidth15,
-                        Stack(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 144,
-                              decoration: BoxDecoration(
-                                color: color.kLightGrey.withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.network(
-                                    'https://pngimg.com/uploads/iphone16/iphone16_PNG13.png'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 144,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                      height: 30,
-                                      width: 30,
-                                      decoration: BoxDecoration(
-                                        color: color.kWhite,
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                color.kBlack.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            offset: const Offset(0, 0),
-                                          )
-                                        ],
-                                      ),
-                                      child: Icon(Icons.favorite_rounded,
-                                          color: color.primaryDarkColor,
-                                          size: 20)),
-                                ],
-                              ),
-                            ),
-                          ],
+      body: SafeArea(
+        bottom: false,
+        child: ContentWidth(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+                child: Column(
+                  children: [
+                    TwoToneTitle(l.wishlistTitleA, l.wishlistTitleB, size: 26),
+                    kHeight15,
+                    TextField(
+                      onChanged: (v) => setState(() => _filter = v),
+                      style: ts(14, w: FontWeight.w400),
+                      decoration: InputDecoration(
+                        hintText: l.searchWishlist,
+                        prefixIcon: Icon(
+                          Icons.search_rounded,
+                          color: color.kBlackSecondary,
                         ),
-                        kWidth10,
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              kHeight15,
-                              Text(
-                                'iPhone 16 Pro Max',
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: FontStyles().randomTextStylePoppins(
-                                    size: 16,
-                                    weight: FontWeight.w600,
-                                    color: color.kBlack),
-                              ),
-                              kHeight5,
-                              Text(
-                                'iIts a 256 GB internal storage with Natural Titanium color',
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: FontStyles().randomTextStylePoppins(
-                                    size: 12,
-                                    weight: FontWeight.w400,
-                                    color: color.kBlackSecondary),
-                              ),
-                              const Spacer(),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '\$799.00',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: FontStyles().randomTextStylePoppins(
-                                        size: 15,
-                                        weight: FontWeight.w600,
-                                        color: color.kBlack),
-                                  ),
-                                  const Spacer(),
-                                  Container(
-                                      height: 40,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                        color: color.kBlack,
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                color.kBlack.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            offset: const Offset(0, 0),
-                                          )
-                                        ],
-                                      ),
-                                      child: Transform.rotate(
-                                        angle: 310 * 3.14 / 180,
-                                        child: Icon(
-                                            Icons.arrow_right_alt_rounded,
-                                            color: color.kWhite,
-                                            size: 40),
-                                      )),
-                                  kWidth5
-                                ],
-                              ),
-                              kHeight5
-                            ],
-                          ),
-                        )
-                      ],
+                      ),
                     ),
-                  );
-                },
-                separatorBuilder: (context, index) => kHeight15,
-                itemCount: 10),
-            kHeight60
-          ],
+                    kHeight15,
+                  ],
+                ),
+              ),
+              Expanded(
+                child: wish.loading
+                    ? const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: ListSkeleton(count: 4, itemHeight: 123),
+                      )
+                    : wish.items.isEmpty
+                    ? EmptyState(
+                        icon: Icons.favorite_border_rounded,
+                        title: l.wishlistEmptyTitle,
+                        message: l.wishlistEmptyMessage,
+                        actionLabel: l.startShopping,
+                        onAction: () =>
+                            context.read<NavigationController>().select(0),
+                      )
+                    : items.isEmpty
+                    ? EmptyState(
+                        icon: Icons.search_off_rounded,
+                        title: l.noResults,
+                      )
+                    : ListView.separated(
+                        physics: const BouncingScrollPhysics(),
+                        padding: const EdgeInsets.fromLTRB(
+                          16,
+                          0,
+                          16,
+                          BottomNavigation.barClearance,
+                        ),
+                        itemCount: items.length,
+                        separatorBuilder: (_, _) => kHeight15,
+                        itemBuilder: (_, i) => _WishlistRow(product: items[i]),
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
-    )));
+    );
+  }
+}
+
+class _WishlistRow extends StatelessWidget {
+  final Product product;
+  const _WishlistRow({required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    return Material(
+      color: color.kWhite,
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => context.push(
+          AppRoutes.productDetails,
+          args: ProductDetailsArgs(product, 'wish-${product.id}'),
+        ),
+        child: Container(
+          height: 123,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: color.kLightGrey.withValues(alpha: 0.4)),
+          ),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 110,
+                height: double.infinity,
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Hero(
+                        tag: 'wish-${product.id}',
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: AppNetworkImage(product.image),
+                        ),
+                      ),
+                    ),
+                    PositionedDirectional(
+                      top: 4,
+                      end: 4,
+                      child: WishlistHeart(product: product, size: 28),
+                    ),
+                  ],
+                ),
+              ),
+              kWidth10,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      product.name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: ts(15, w: FontWeight.w600),
+                    ),
+                    kHeight5,
+                    Text(
+                      product.brand,
+                      style: ts(12, w: FontWeight.w400, c: color.kGrey),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            money(product.price),
+                            style: ts(16, w: FontWeight.w600),
+                          ),
+                        ),
+                        Semantics(
+                          button: true,
+                          label: l.addToCart,
+                          child: GestureDetector(
+                            onTap: product.inStock
+                                ? () {
+                                    context.read<CartController>().add(product);
+                                    showSnack(
+                                      context,
+                                      l.addedToCart,
+                                      actionLabel: l.viewCart,
+                                      onAction: () =>
+                                          context.push(AppRoutes.cart),
+                                    );
+                                  }
+                                : null,
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: color.kBlack,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.add_shopping_cart_rounded,
+                                size: 20,
+                                color: color.background,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
