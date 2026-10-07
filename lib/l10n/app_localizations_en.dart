@@ -619,6 +619,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backOnline => 'Back online';
 
   @override
+  String get pushAskTitle => 'Get order updates?';
+
+  @override
+  String get pushAskMessage =>
+      'We\'ll notify you when your order is confirmed, shipped and delivered.';
+
+  @override
+  String get enableNotifications => 'Turn on notifications';
+
+  @override
   String get orderSummary => 'Order summary';
 
   @override

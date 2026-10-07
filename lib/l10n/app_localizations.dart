@@ -1190,6 +1190,24 @@ abstract class AppLocalizations {
   /// **'Back online'**
   String get backOnline;
 
+  /// No description provided for @pushAskTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Get order updates?'**
+  String get pushAskTitle;
+
+  /// No description provided for @pushAskMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll notify you when your order is confirmed, shipped and delivered.'**
+  String get pushAskMessage;
+
+  /// No description provided for @enableNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on notifications'**
+  String get enableNotifications;
+
   /// No description provided for @orderSummary.
   ///
   /// In en, this message translates to:
