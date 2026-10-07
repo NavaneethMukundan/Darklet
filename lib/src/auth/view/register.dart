@@ -1,140 +1,115 @@
-import 'package:darklet/src/auth/view/login.dart';
-import 'package:darklet/src/auth/widget/input_field.dart';
-import 'package:darklet/src/onboarding/view/splash_screen.dart';
-import 'package:darklet/src/utils/constants/asset_store.dart';
-import 'package:darklet/src/utils/constants/screen_route.dart';
+import 'package:darklet/src/auth/controller/auth_controller.dart';
+import 'package:darklet/src/auth/widget/auth_widgets.dart';
+import 'package:darklet/src/utils/constants/app_routes.dart';
 import 'package:darklet/src/utils/constants/space_helper.dart';
+import 'package:darklet/src/utils/helpers/l10n_ext.dart';
+import 'package:darklet/src/utils/helpers/validators.dart';
+import 'package:darklet/src/utils/router/app_router.dart';
+import 'package:darklet/src/utils/themes/colors/colors.dart';
 import 'package:darklet/src/utils/themes/styles/font_style.dart';
+import 'package:darklet/src/utils/widgets/app_text_field.dart';
+import 'package:darklet/src/utils/widgets/buttons.dart';
+import 'package:darklet/src/utils/widgets/common_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
   @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _name = TextEditingController();
+  final _email = TextEditingController();
+  final _password = TextEditingController();
+  final _confirm = TextEditingController();
+
+  @override
+  void dispose() {
+    _name.dispose();
+    _email.dispose();
+    _password.dispose();
+    _confirm.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
+    if (!_formKey.currentState!.validate()) return;
+    final l = context.l10n;
+    final err = await context.read<AuthController>().register(
+      _name.text,
+      _email.text,
+      _password.text,
+    );
+    if (!mounted) return;
+    err == null
+        ? context.pushAndClear(AppRoutes.home)
+        : showSnack(context, authErrorText(l, err));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: color.primaryColor,
-      resizeToAvoidBottomInset: true,
-      body: Stack(
-        children: [
-          Image.asset(
-            AssetStore().authGraphics,
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: color.kWhite,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                ),
-              ),
-              child: SafeArea(
-                top: false,
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      kHeight30,
-                      Text(
-                        'Get started free.',
-                        style: FontStyles().randomTextStylePoppins(
-                          size: 34,
-                          color: color.kBlack,
-                          weight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Free forever. No credit card needed.',
-                        style: FontStyles().randomTextStylePoppins(
-                          size: 16,
-                          color: color.kGrey,
-                          weight: FontWeight.w400,
-                        ),
-                      ),
-                      kHeight30,
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: InputFieldWidget(
-                          isObscureText: false,
-                          hintText: 'Name',
-                        ),
-                      ),
-                      kHeight15,
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: InputFieldWidget(
-                          isObscureText: false,
-                          hintText: 'Email Address',
-                        ),
-                      ),
-                      kHeight15,
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: InputFieldWidget(
-                          isObscureText: true,
-                          hintText: 'Password',
-                        ),
-                      ),
-                      kHeight15,
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: InputFieldWidget(
-                          isObscureText: true,
-                          hintText: 'Confirm Password',
-                        ),
-                      ),
-                      kHeight30,
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 35),
-                        child: Container(
-                          height: 65,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: color.kBlack,
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Sign Up',
-                              style: FontStyles().randomTextStylePoppins(
-                                size: 20,
-                                weight: FontWeight.w600,
-                                color: color.kWhite,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      kHeight5,
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: TextButton(
-                          onPressed: () {
-                            pushReplacementRoute(context, const LoginScreen());
-                          },
-                          child: Text(
-                            'Already have an account ? ',
-                            style: FontStyles().randomTextStylePoppins(
-                              size: 16,
-                              weight: FontWeight.w400,
-                              color: color.kGrey,
-                            ),
-                          ),
-                        ),
-                      ),
-                      kHeight25,
-                    ],
-                  ),
-                ),
+    final l = context.l10n;
+    final busy = context.select<AuthController, bool>((a) => a.busy);
+    return AuthScaffold(
+      title: l.createAccount,
+      subtitle: l.registerSubtitle,
+      showBack: true,
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            AppTextField(
+              label: l.fullName,
+              controller: _name,
+              prefixIcon: Icons.person_outline_rounded,
+              textInputAction: TextInputAction.next,
+              textCapitalization: TextCapitalization.words,
+              autofillHints: const [AutofillHints.name],
+              validator: Validators.required(l),
+            ),
+            kHeight15,
+            AppTextField(
+              label: l.email,
+              hint: l.emailHint,
+              controller: _email,
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              prefixIcon: Icons.mail_outline_rounded,
+              autofillHints: const [AutofillHints.email],
+              validator: Validators.email(l),
+            ),
+            kHeight15,
+            PasswordField(
+              label: l.password,
+              controller: _password,
+              textInputAction: TextInputAction.next,
+              validator: Validators.password(l),
+            ),
+            kHeight15,
+            PasswordField(
+              label: l.confirmPassword,
+              controller: _confirm,
+              textInputAction: TextInputAction.done,
+              onSubmitted: (_) => _submit(),
+              validator: (v) =>
+                  v != _password.text ? l.passwordsDontMatch : null,
+            ),
+            kHeight25,
+            PrimaryButton(label: l.signUp, onPressed: _submit, loading: busy),
+            kHeight10,
+            TextButton(
+              onPressed: () => Navigator.of(context).maybePop(),
+              child: Text(
+                l.haveAccount,
+                style: ts(15, w: FontWeight.w500, c: color.primaryDarkColor),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
