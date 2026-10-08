@@ -2,13 +2,22 @@
 
 1. Create a project at <https://console.firebase.google.com>.
 2. Enable **Authentication** (Email/Password and Google), **Firestore**, **Storage**, **Cloud Messaging**.
-3. Register the apps with the CLI (it replaces `google-services.json` / `GoogleService-Info.plist`):
+3. Generate the Firebase config (it overwrites the placeholder `lib/firebase_options.dart`):
    ```bash
    dart pub global activate flutterfire_cli
-   flutterfire configure --project=<your-project-id> --android-package-name=<your.bundle.id> --ios-bundle-id=<your.bundle.id>
+   flutterfire configure --project=<your-project-id> --platforms=android,ios \
+     --android-package-name=<your.bundle.id> --ios-bundle-id=<your.bundle.id> \
+     --out=lib/firebase_options.dart
    ```
-   Do **not** commit these files in the zip you distribute.
-4. Google sign-in: add your SHA-1/SHA-256 in Firebase, and on iOS add the `REVERSED_CLIENT_ID` URL scheme (see the `google_sign_in` package docs).
+   If it also edits `android/` Gradle files or adds `google-services.json` / `GoogleService-Info.plist`, you can
+   discard those - the app initialises Firebase from `firebase_options.dart`. Do not distribute your generated options file.
+4. Google sign-in:
+   - Android: add your debug **and** release SHA-1 / SHA-256 fingerprints to the Android app in Firebase
+     (`keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android`, or
+     `firebase apps:android:sha:create <appId> <sha>`).
+   - Copy the **Web client ID** (Authentication -> Sign-in method -> Google -> Web SDK configuration) into
+     `googleServerClientId` in `lib/firebase_options.dart`.
+   - iOS: put `REVERSED_CLIENT_ID` (from `GoogleService-Info.plist`) in the URL scheme in `ios/Runner/Info.plist`.
 5. Deploy the rules: `cd firebase && firebase deploy --only firestore:rules,storage`.
 6. Seed demo data: see the header of `tools/seed/seed.js`.
 7. Run: `flutter run --dart-define=USE_MOCK=false`.
@@ -28,8 +37,9 @@ Guests can browse: `products`, `categories` and `reviews` are publicly readable,
 users can read/write only their own cart, wishlist, addresses and orders.
 
 ## Push notifications (FCM)
+Signed-in users are subscribed to the topic `user_<uid>` silently. The permission prompt is *not* shown at launch: the app explains the benefit and asks right after the user's first order (`PushPermissionPrompt`). Android 13+ needs the `POST_NOTIFICATIONS` permission (already in the manifest).
 The app shows foreground pushes in the notifications inbox. `firebase/functions/index.js` contains
-`onOrderStatusChange`, which sends a push when an order's `status` changes. iOS also needs an APNs key
+`onOrderCreated` ("Order placed" push) and `onOrderStatusChange` (push whenever an order's `status` changes). iOS also needs an APNs key
 uploaded in Firebase and the Push Notifications capability in Xcode.
 
 Change an order's status from the console or your back office: set `status` and append to `events`

@@ -10,7 +10,7 @@
 //  * Set the Stripe SECRET key with:  firebase functions:secrets:set STRIPE_SECRET_KEY
 //    NEVER put it in the Flutter app or commit it.
 const { onRequest, onCall, HttpsError } = require("firebase-functions/v2/https");
-const { onDocumentUpdated } = require("firebase-functions/v2/firestore");
+const { onDocumentCreated, onDocumentUpdated } = require("firebase-functions/v2/firestore");
 const admin = require("firebase-admin");
 
 admin.initializeApp();
@@ -196,15 +196,36 @@ exports.cancelOrder = onCall({ secrets: ["STRIPE_SECRET_KEY"] }, async (request)
   return { ...o, status: "cancelled", events };
 });
 
-// Push a notification whenever an order's status changes (e.g. set to "shipped"
-// from your back office). Devices should subscribe to topic `user_<uid>`.
+// Push notifications go to the topic `user_<uid>` (the app subscribes signed-in
+// users to it). The same `notifId` is used by the app's inbox so a push and the
+// locally created entry are never duplicated.
+const STATUS_TEXT = {
+  placed: ["Order placed", "We received your order and will confirm it shortly."],
+  confirmed: ["Order confirmed", "Your order is confirmed and being prepared."],
+  shipped: ["Order shipped", "Your order is on its way."],
+  outForDelivery: ["Out for delivery", "Your order will arrive today."],
+  delivered: ["Order delivered", "Enjoy! Thanks for shopping with us."],
+  cancelled: ["Order cancelled", "Your order was cancelled."],
+};
+
+async function notifyOrder(order) {
+  const [title, body] = STATUS_TEXT[order.status] || ["Order update", `Status: ${order.status}`];
+  await admin.messaging().send({
+    topic: `user_${order.userId}`,
+    notification: { title: `${title} - ${order.id}`, body },
+    data: { type: "order", orderId: order.id, notifId: `order-${order.id}-${order.status}` },
+  });
+}
+
+// New order -> "Order placed" push.
+exports.onOrderCreated = onDocumentCreated("orders/{orderId}", async (event) => {
+  await notifyOrder(event.data.data());
+});
+
+// Status change (set it from your back office, or cancelOrder) -> push.
 exports.onOrderStatusChange = onDocumentUpdated("orders/{orderId}", async (event) => {
   const before = event.data.before.data();
   const after = event.data.after.data();
   if (before.status === after.status) return;
-  await admin.messaging().send({
-    topic: `user_${after.userId}`,
-    notification: { title: `Order ${after.id}`, body: `Status: ${after.status}` },
-    data: { type: "order", orderId: after.id },
-  });
+  await notifyOrder(after);
 });

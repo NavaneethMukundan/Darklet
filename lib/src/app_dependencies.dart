@@ -1,3 +1,4 @@
+import 'package:darklet/firebase_options.dart';
 import 'package:darklet/src/config/config.dart';
 import 'package:darklet/src/repositories/auth_repository.dart';
 import 'package:darklet/src/repositories/coupon_repository.dart';
@@ -73,7 +74,15 @@ class AppDependencies {
   static Future<AppDependencies> create() async {
     final prefs = await SharedPreferences.getInstance();
     if (AppConfig.useMock) return AppDependencies.mock(prefs);
-    await Firebase.initializeApp();
+    if (!DefaultFirebaseOptions.isConfigured) {
+      throw StateError(
+        'Firebase is not configured. Run `flutterfire configure` '
+        '(see docs/FIREBASE_SETUP.md) or run in mock mode.',
+      );
+    }
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     if (StripePaymentService.isConfigured) StripePaymentService.init();
     return AppDependencies.firebase(prefs);
   }

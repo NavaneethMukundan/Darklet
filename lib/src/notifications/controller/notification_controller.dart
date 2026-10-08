@@ -28,6 +28,7 @@ class NotificationController extends UserScopedController {
 
   /// Adds a notification at the top (e.g. from an FCM push).
   void add(AppNotification n) {
+    if (_items.any((e) => e.id == n.id)) return; // already shown (push + local)
     _items.insert(0, n);
     _changed();
   }

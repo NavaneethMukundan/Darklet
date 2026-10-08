@@ -1210,6 +1210,12 @@ PODS:
     - Firebase/Firestore (= 12.19.0)
     - firebase_core
     - Flutter
+  - cloud_functions (6.5.0):
+    - Firebase/Functions (= 12.19.0)
+    - firebase_core
+    - Flutter
+  - connectivity_plus (0.0.1):
+    - Flutter
   - Firebase/Auth (12.19.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 12.19.0)
@@ -1218,6 +1224,9 @@ PODS:
   - Firebase/Firestore (12.19.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 12.19.0)
+  - Firebase/Functions (12.19.0):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (~> 12.19.0)
   - Firebase/Messaging (12.19.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 12.19.0)
@@ -1278,6 +1287,14 @@ PODS:
     - gRPC-Core (~> 1.69.0)
     - leveldb-library (~> 1.22)
     - nanopb (~> 3.30910.0)
+  - FirebaseFunctions (12.19.0):
+    - FirebaseAppCheckInterop (~> 12.19.0)
+    - FirebaseAuthInterop (~> 12.19.0)
+    - FirebaseCore (~> 12.19.0)
+    - FirebaseCoreExtension (~> 12.19.0)
+    - FirebaseMessagingInterop (~> 12.19.0)
+    - FirebaseSharedSwift (~> 12.19.0)
+    - GTMSessionFetcher/Core (< 6.0, >= 3.4)
   - FirebaseInstallations (12.19.0):
     - FirebaseCore (~> 12.19.0)
     - GoogleUtilities/Environment (~> 8.1)
@@ -1292,6 +1309,7 @@ PODS:
     - GoogleUtilities/Reachability (~> 8.1)
     - GoogleUtilities/UserDefaults (~> 8.1)
     - nanopb (~> 3.30910.0)
+  - FirebaseMessagingInterop (12.19.0)
   - FirebaseSharedSwift (12.19.0)
   - FirebaseStorage (12.19.0):
     - FirebaseAppCheckInterop (~> 12.19.0)
@@ -1301,6 +1319,10 @@ PODS:
     - GoogleUtilities/Environment (~> 8.1)
     - GTMSessionFetcher/Core (< 6.0, >= 3.4)
   - Flutter (1.0.0)
+  - flutter_local_notifications (0.0.1):
+    - Flutter
+  - flutter_native_splash (2.4.3):
+    - Flutter
   - google_sign_in_ios (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -1519,11 +1541,15 @@ PODS:
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - cloud_functions (from `.symlinks/plugins/cloud_functions/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
+  - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
+  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/darwin`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -1544,8 +1570,10 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseFirestore
     - FirebaseFirestoreInternal
+    - FirebaseFunctions
     - FirebaseInstallations
     - FirebaseMessaging
+    - FirebaseMessagingInterop
     - FirebaseSharedSwift
     - FirebaseStorage
     - GoogleDataTransport
@@ -1574,6 +1602,10 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  cloud_functions:
+    :path: ".symlinks/plugins/cloud_functions/ios"
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -1584,6 +1616,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: Flutter
+  flutter_local_notifications:
+    :path: ".symlinks/plugins/flutter_local_notifications/ios"
+  flutter_native_splash:
+    :path: ".symlinks/plugins/flutter_native_splash/ios"
   google_sign_in_ios:
     :path: ".symlinks/plugins/google_sign_in_ios/darwin"
   image_picker_ios:
@@ -1599,6 +1635,8 @@ SPEC CHECKSUMS:
   AppCheckCore: be8fce5469f68d7f6a29aa94b25f097409ff7fdc
   BoringSSL-GRPC: dded2a44897e45f28f08ae87a55ee4bcd19bc508
   cloud_firestore: 6b15358b9c83dac187833d1e294b8597c68d3f3b
+  cloud_functions: 1743624e495a24ffbe58ce4ef9500fbf0d2ac5f4
+  connectivity_plus: 2a701ffec2c0ae28a48cf7540e279787e77c447d
   Firebase: 7ca191e43724142f79fae653547b3382c45413cc
   firebase_auth: 36fa0bc88f7ea4c0ad5c543d117674d05be29799
   firebase_core: 7ed66bd750bf2b7a29268b21d63eec7bc6799ee8
@@ -1612,11 +1650,15 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: 656b1c2fd5a1c5976183dc54b73deda78fb26ee3
   FirebaseFirestore: 311722a65983b64e912ef1aa5ab8933cefbbf6d8
   FirebaseFirestoreInternal: c5fe347a024926551b8cb6d6b3ba78f19a7b525e
+  FirebaseFunctions: 5b5ae19d3cd261b74802d54780ac79db152562cd
   FirebaseInstallations: f70a49eed611f5602f373e40974b3b01556ac217
   FirebaseMessaging: c15f48126adbe8b4d3238a5e1fa24bab3ad3e472
+  FirebaseMessagingInterop: 8befe363c0f23eaff7b1807dbc76a0546d79f00c
   FirebaseSharedSwift: c91f36aeaa566e12b682caacc40d34c8303c3124
   FirebaseStorage: 357354fbde2ba62983c0fe5d9cf10155046b5404
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  flutter_local_notifications: ff50f8405aaa0ccdc7dcfb9022ca192e8ad9688f
+  flutter_native_splash: df59bb2e1421aa0282cb2e95618af4dcb0c56c29
   google_sign_in_ios: ee49ee802921a2b31bac453205c4d7ac783f0a86
   GoogleDataTransport: a24e58982ab3ba2f64d79613e027fe7f57e88539
   GoogleSignIn: e449a40a92e9f2eea56e98b5214d13725dc5a00a

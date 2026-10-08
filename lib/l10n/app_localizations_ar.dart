@@ -628,6 +628,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backOnline => 'عاد الاتصال';
 
   @override
+  String get pushAskTitle => 'هل تريد تلقي تحديثات الطلب؟';
+
+  @override
+  String get pushAskMessage => 'سنخبرك عند تأكيد طلبك وشحنه وتسليمه.';
+
+  @override
+  String get enableNotifications => 'تفعيل الإشعارات';
+
+  @override
+  String get view => 'عرض';
+
+  @override
   String get orderSummary => 'ملخص الطلب';
 
   @override

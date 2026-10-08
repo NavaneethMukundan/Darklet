@@ -1,6 +1,9 @@
 import 'dart:io';
 
+import 'package:darklet/firebase_options.dart';
 import 'package:darklet/src/models/user_profile.dart';
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform;
 import 'package:darklet/src/repositories/auth_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
@@ -97,7 +100,14 @@ class FirebaseAuthRepository implements AuthRepository {
   Future<UserProfile> signInWithGoogle() async {
     try {
       if (!_googleReady) {
-        await GoogleSignIn.instance.initialize();
+        await GoogleSignIn.instance.initialize(
+          // Web client id (needed on Android to get an id token) and the iOS
+          // client id come from lib/firebase_options.dart.
+          serverClientId: DefaultFirebaseOptions.googleServerClientId,
+          clientId: defaultTargetPlatform == TargetPlatform.iOS
+              ? DefaultFirebaseOptions.ios.iosClientId
+              : null,
+        );
         _googleReady = true;
       }
       final account = await GoogleSignIn.instance.authenticate();

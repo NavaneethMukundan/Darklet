@@ -38,7 +38,8 @@ Future<Order> completeOrder(
   checkout.reset();
   notifications.add(
     AppNotification(
-      id: 'n${DateTime.now().millisecondsSinceEpoch}',
+      // Same id the server push uses, so the inbox never shows it twice.
+      id: 'order-${order.id}-placed',
       title: notificationTitle,
       body: notificationBody(order.id),
       createdAt: DateTime.now(),
